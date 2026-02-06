@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 import { 
   FaBook, 
   FaFlask, 
@@ -78,11 +79,19 @@ const Facilities = () => {
     },
   ];
 
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <section id="facilities" className="py-20 bg-gradient-to-b from-white to-primary-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             World-Class <span className="gradient-text">Facilities</span>
           </h2>
@@ -93,12 +102,19 @@ const Facilities = () => {
         </div>
 
         {/* Facilities Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div 
+          ref={cardsRef}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+        >
           {facilities.map((facility, index) => (
             <div
               key={index}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-lg card-hover animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`group relative bg-white rounded-2xl overflow-hidden shadow-lg card-hover transition-all duration-700 ${
+                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+              style={{ 
+                transitionDelay: cardsVisible ? `${index * 100}ms` : '0ms'
+              }}
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">

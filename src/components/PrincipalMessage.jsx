@@ -1,13 +1,23 @@
 import React from 'react';
 import { FaTrophy, FaQuoteLeft, FaQuoteRight, FaStar } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const PrincipalMessage = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [cardRef, cardVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [badgesRef, badgesVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <section className="py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
+          <div 
+            ref={headerRef}
+            className={`text-center mb-12 transition-all duration-1000 ${
+              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-primary-800 dark:text-white mb-4">
               Principal's <span className="gradient-text">Message</span>
             </h2>
@@ -15,7 +25,12 @@ const PrincipalMessage = () => {
           </div>
 
           {/* Principal Card */}
-          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden">
+          <div 
+            ref={cardRef}
+            className={`bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden transition-all duration-1000 ${
+              cardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
             <div className="grid md:grid-cols-5 gap-0">
               {/* Left - Principal Photo */}
               <div className="md:col-span-2 bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-500 p-8 flex items-center justify-center relative">
@@ -49,7 +64,7 @@ const PrincipalMessage = () => {
                   <p className="text-white/90 font-semibold mb-2">Principal</p>
                   <div className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full inline-block">
                     <p className="text-white text-sm font-semibold">
-                      🏆 Top 1000/15 Lakh Schools
+                      🏆 In Top 1000/15 Lakh Schools
                     </p>
                   </div>
                 </div>
@@ -66,7 +81,7 @@ const PrincipalMessage = () => {
                     </p>
                     
                     <p className="text-lg leading-relaxed">
-                      It is with immense pride and gratitude that I welcome you to <strong className="text-primary-600 dark:text-accent-400">Shri Krishna Public School</strong>, recognized <strong className="text-yellow-600 dark:text-yellow-400">In Top 1000 Schools</strong> by the Indian Talent Olympiad.
+                      It is with immense pride and gratitude that I welcome you to <strong className="text-primary-600 dark:text-accent-400">Shree Krishna Public School</strong>, recognized <strong className="text-yellow-600 dark:text-yellow-400">In Top 1000 Schools</strong> by the Indian Talent Olympiad.
                     </p>
                     
                     <p className="text-lg leading-relaxed">
@@ -78,7 +93,7 @@ const PrincipalMessage = () => {
                     </p>
                     
                     <p className="text-lg leading-relaxed">
-                      At Shri Krishna Public School, every moment is a learning opportunity. We strive to create an environment where every child can discover their potential, pursue their passions, and achieve excellence.
+                      At Shree Krishna Public School, every moment is a learning opportunity. We strive to create an environment where every child can discover their potential, pursue their passions, and achieve excellence.
                     </p>
                     
                     <p className="text-lg leading-relaxed">
@@ -102,22 +117,25 @@ const PrincipalMessage = () => {
           </div>
 
           {/* Achievement Badges */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+          <div 
+            ref={badgesRef}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
+          >
             <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl p-4 text-center text-white shadow-lg">
-              <div className="text-3xl font-bold mb-1">Top 1000</div>
+              <div className="text-3xl font-bold mb-1">In Top 1000</div>
               <div className="text-sm opacity-90">Schools in India</div>
             </div>
             <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl p-4 text-center text-white shadow-lg">
-              <div className="text-3xl font-bold mb-1">38</div>
-              <div className="text-sm opacity-90">Gold Medals</div>
+              <div className="text-3xl font-bold mb-1">30000+</div>
+              <div className="text-sm opacity-90">Happy Students</div>
             </div>
             <div className="bg-gradient-to-br from-red-400 to-red-600 rounded-xl p-4 text-center text-white shadow-lg">
-              <div className="text-3xl font-bold mb-1">5</div>
-              <div className="text-sm opacity-90">Black Belts</div>
+              <div className="text-3xl font-bold mb-1">3000+</div>
+              <div className="text-sm opacity-90">Satisfied Parents</div>
             </div>
             <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-xl p-4 text-center text-white shadow-lg">
-              <div className="text-3xl font-bold mb-1">90%+</div>
-              <div className="text-sm opacity-90">Board Results</div>
+              <div className="text-3xl font-bold mb-1">95%</div>
+              <div className="text-sm opacity-90">Success Rate</div>
             </div>
           </div>
         </div>

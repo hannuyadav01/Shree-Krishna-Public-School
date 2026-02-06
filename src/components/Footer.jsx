@@ -43,6 +43,8 @@ const Footer = () => {
     { name: 'Events', href: '/events' },
     { name: 'Faculty', href: '/faculty' },
     { name: 'Contact Us', href: '/contact' },
+    { name: 'SKPS Udairamsar', href: '/shree-krishna-public-school-udairamsar' },
+    { name: 'LKPS Bikaner', href: '/little-krishna-public-school-bikaner' },
   ];
 
   const socialLinks = [
@@ -51,7 +53,7 @@ const Footer = () => {
       url: 'https://www.instagram.com/shree_krishna_publicudairamsar/', 
       color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-600 hover:to-orange-500', 
       bgColor: 'bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-orange-500/20',
-      label: 'Shri Krishna Public School Instagram',
+      label: 'Shree Krishna Public School Instagram',
       badge: 'SKPS'
     },
     { 
@@ -59,7 +61,7 @@ const Footer = () => {
       url: 'https://www.instagram.com/little_krishna_public_school_/', 
       color: 'hover:bg-gradient-to-br hover:from-yellow-500 hover:via-orange-500 hover:to-red-500', 
       bgColor: 'bg-gradient-to-br from-yellow-500/20 via-orange-500/20 to-red-500/20',
-      label: 'Little Krishna Public School Instagram',
+      label: 'LKPS English Academy Instagram',
       badge: 'LKPS'
     },
     { 
@@ -85,7 +87,7 @@ const Footer = () => {
                 className="w-16 h-16 object-contain"
               />
               <div>
-                <h3 className="text-xl font-bold">Shri Krishna</h3>
+                <h3 className="text-xl font-bold">Shree Krishna</h3>
                 <p className="text-sm text-gray-400">Public School</p>
                 <p className="text-xs text-gray-500">Since 2004</p>
               </div>
@@ -128,7 +130,7 @@ const Footer = () => {
                 <span>•</span>
                 <span className="flex items-center">
                   <span className="w-2 h-2 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 mr-1"></span>
-                  Little Krishna
+                  LKPS English Academy
                 </span>
               </div>
             </div>
@@ -184,8 +186,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-accent-400 mt-1 flex-shrink-0" />
                 <div className="text-gray-400 text-sm">
-                  <p className="font-semibold text-white mb-1">Little Krishna:</p>
-                  <p>GangaSher, Near Udairamsar, Bikaner 334402</p>
+                  <p className="font-semibold text-white mb-1">LKPS English Academy:</p>
+                  <p>C-115 Vyapaar Nagar Gangashahar Bikaner</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
@@ -210,7 +212,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} Shri Krishna Public School. All rights reserved.
+              © {currentYear} Shree Krishna Public School. All rights reserved.
             </div>
             <div className="text-gray-400 text-sm flex items-center">
               Made with <FaHeart className="text-red-500 mx-2 animate-pulse" /> for Education

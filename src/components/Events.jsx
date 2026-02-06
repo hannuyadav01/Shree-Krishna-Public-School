@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaCalendar, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Events = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1 });
   const events = [
     {
       title: 'Annual Sports Day',
@@ -49,7 +52,12 @@ const Events = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             Upcoming <span className="gradient-text">Events</span>
           </h2>
@@ -60,12 +68,19 @@ const Events = () => {
         </div>
 
         {/* Events Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div 
+          ref={cardsRef}
+          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+        >
           {events.map((event, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-xl card-hover animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`bg-white rounded-2xl overflow-hidden shadow-xl card-hover transition-all duration-700 ${
+                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+              style={{ 
+                transitionDelay: cardsVisible ? `${index * 200}ms` : '0ms'
+              }}
             >
               {/* Event Image */}
               <div className="relative h-56 overflow-hidden">

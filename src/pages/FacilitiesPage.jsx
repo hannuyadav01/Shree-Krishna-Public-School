@@ -1,8 +1,11 @@
 import React from 'react';
 import Facilities from '../components/Facilities';
 import { FaLaptop, FaBook, FaFlask, FaFutbol, FaBus, FaMusic } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const FacilitiesPage = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <div>
       {/* Enhanced Hero Section */}

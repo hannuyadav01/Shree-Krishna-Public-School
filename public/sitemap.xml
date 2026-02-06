@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/about</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Admissions Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/admissions</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- Campuses Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/campuses</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Shree Krishna Public School Udairamsar (SEO Page) -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/shree-krishna-public-school-udairamsar</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- Little Krishna Public School Bikaner (SEO Page) -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/little-krishna-public-school-bikaner</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  
+  <!-- Faculty Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/faculty</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Facilities Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/facilities</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Achievements Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/achievements</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/gallery</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Events Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/events</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://shree-krishna-public-school.vercel.app/contact</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  
+</urlset>

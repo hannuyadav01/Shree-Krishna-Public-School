@@ -28,7 +28,7 @@ export const sendAdmissionEnquiry = async (formData) => {
       parent_name: formData.parentName,
       child_name: formData.childName,
       child_age: formData.childAge,
-      campus: formData.campus === 'skps' ? 'Shri Krishna Public School' : 'Little Krishna Public School',
+      campus: formData.campus === 'skps' ? 'Shree Krishna Public School' : 'LKPS English Academy',
       phone: formData.phone,
       email: formData.email,
       message: formData.message || 'No additional message',
@@ -96,7 +96,7 @@ export const sendWhatsAppNotification = (formData, type = 'admission') => {
               `👤 Parent: ${formData.parentName}\n` +
               `👶 Child: ${formData.childName}\n` +
               `📅 Age: ${formData.childAge}\n` +
-              `🏫 Campus: ${formData.campus === 'skps' ? 'Shri Krishna PS' : 'Little Krishna PS'}\n` +
+              `🏫 Campus: ${formData.campus === 'skps' ? 'Shree Krishna PS' : 'LKPS English Academy'}\n` +
               `📞 Phone: ${formData.phone}\n` +
               `📧 Email: ${formData.email}\n` +
               `💬 Message: ${formData.message || 'N/A'}`;

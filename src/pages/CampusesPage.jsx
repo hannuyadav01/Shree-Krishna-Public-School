@@ -1,8 +1,13 @@
 import React from 'react';
 import Campuses from '../components/Campuses';
+import InfiniteSlider from '../components/InfiniteSlider';
 import { FaSchool, FaBaby, FaMapMarkedAlt, FaBus } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const CampusesPage = () => {
+  const [heroStatsRef, heroStatsVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [featuresRef, featuresVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <div>
       {/* Enhanced Hero Section */}
@@ -26,7 +31,7 @@ const CampusesPage = () => {
                   className="w-20 h-20 md:w-24 md:h-24 object-contain animate-float"
                 />
                 <img 
-                  src="/images/little-krishna-logo.png" 
+                  src="/images/lkps-english-academy-logo.png" 
                   alt="LKPS Logo" 
                   className="w-20 h-20 md:w-24 md:h-24 object-contain animate-float"
                   style={{ animationDelay: '0.2s' }}
@@ -67,18 +72,27 @@ const CampusesPage = () => {
               </div>
 
               {/* Campus Stats */}
-              <div className="grid grid-cols-3 gap-4 mb-8 max-w-md mx-auto md:mx-0">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
+              <div 
+                ref={heroStatsRef}
+                className="grid grid-cols-3 gap-4 mb-8 max-w-md mx-auto md:mx-0"
+              >
+                <div className={`bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center transition-all duration-700 ${
+                  heroStatsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}>
                   <div className="text-2xl md:text-3xl font-bold text-emerald-400">2</div>
                   <div className="text-xs text-emerald-200">Campuses</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-emerald-400">1500+</div>
-                  <div className="text-xs text-emerald-200">Students</div>
+                <div className={`bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center transition-all duration-700 delay-150 ${
+                  heroStatsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}>
+                  <div className="text-2xl md:text-3xl font-bold text-emerald-400">30000+</div>
+                  <div className="text-xs text-emerald-200">Happy Students</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-emerald-400">7000+</div>
-                  <div className="text-xs text-emerald-200">Alumni</div>
+                <div className={`bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center transition-all duration-700 delay-300 ${
+                  heroStatsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}>
+                  <div className="text-2xl md:text-3xl font-bold text-emerald-400">450+</div>
+                  <div className="text-xs text-emerald-200">Satisfied Parents</div>
                 </div>
               </div>
 
@@ -148,6 +162,9 @@ const CampusesPage = () => {
         </div>
       </section>
 
+      {/* Infinite Slider */}
+      <InfiniteSlider />
+
       <div id="campuses">
         <Campuses />
       </div>
@@ -164,7 +181,7 @@ const CampusesPage = () => {
                   <div className="bg-blue-100 text-blue-600 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 mb-2">Strategic Locations</h3>
-                    <p className="text-gray-600">Both campuses are strategically located in Udairamsar and Ganga Shergaon areas of Bikaner, providing easy accessibility for families across the region.</p>
+                    <p className="text-gray-600">Both campuses are strategically located in Udairamsar and Gangashahar areas of Bikaner, providing easy accessibility for families across the region.</p>
                   </div>
                 </div>
 
@@ -172,7 +189,7 @@ const CampusesPage = () => {
                   <div className="bg-green-100 text-green-600 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-800 mb-2">Age-Appropriate Infrastructure</h3>
-                    <p className="text-gray-600">Main campus for older students with advanced facilities, and Little Krishna campus specially designed for early years education with safe, child-friendly spaces.</p>
+                    <p className="text-gray-600">Main campus for older students with advanced facilities, and LKPS English Academy specially designed for early years education with safe, child-friendly spaces.</p>
                   </div>
                 </div>
 

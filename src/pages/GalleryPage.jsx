@@ -1,8 +1,11 @@
 import React from 'react';
 import Gallery from '../components/Gallery';
 import { FaCamera, FaImages, FaInstagram } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const GalleryPage = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <div>
       {/* Enhanced Hero Section */}
@@ -33,7 +36,7 @@ const GalleryPage = () => {
               </h1>
               
               <p className="text-lg md:text-xl text-amber-100 mb-6 leading-relaxed">
-                Glimpses of life at Shri Krishna Public School - Capturing moments, creating memories
+                Glimpses of life at Shree Krishna Public School - Capturing moments, creating memories
               </p>
 
               {/* Gallery Stats */}

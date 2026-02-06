@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaTrophy, FaAward, FaStar, FaGraduationCap } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Leadership = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1 });
   const leaders = [
     {
       name: 'Suresh Yadav',
@@ -9,17 +12,17 @@ const Leadership = () => {
       image: '/images/leadership/principal-suresh-yadav.png',
       award: 'Best Principal Award Winner',
       organization: 'Indian Talent Olympiad',
-      achievement: 'Top 1000 out of 15 Lakh Schools',
+      achievement: 'In Top 1000 out of 15 Lakh Schools',
       icon: FaTrophy,
       gradient: 'from-yellow-400 via-yellow-500 to-orange-500',
-      message: '"Education is not preparation for life; education is life itself. At Shri Krishna Public School, we strive to make every moment a learning opportunity."'
+      message: '"Education is not preparation for life; education is life itself. At Shree Krishna Public School, we strive to make every moment a learning opportunity."'
     },
     {
       name: 'School Director',
       role: 'Director',
       image: '/images/leadership/director.png',
       award: 'Visionary Leader',
-      organization: 'Shri Krishna Public School',
+      organization: 'Shree Krishna Public School',
       achievement: 'Building Excellence in Education',
       icon: FaAward,
       gradient: 'from-blue-400 via-blue-500 to-indigo-500',
@@ -31,24 +34,37 @@ const Leadership = () => {
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 dark:text-white mb-4">
             Our <span className="gradient-text">Leadership</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Meet the visionary leaders driving excellence and innovation at Shri Krishna Public School
+            Meet the visionary leaders driving excellence and innovation at Shree Krishna Public School
           </p>
           <div className="w-24 h-1 bg-gradient-accent mx-auto mt-4"></div>
         </div>
 
         {/* Leadership Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div 
+          ref={cardsRef}
+          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+        >
           {leaders.map((leader, index) => {
             const IconComponent = leader.icon;
             return (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-300"
+                className={`bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-1000 ${
+                  cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+                style={{ 
+                  transitionDelay: cardsVisible ? `${index * 300}ms` : '0ms'
+                }}
               >
                 {/* Header with gradient */}
                 <div className={`bg-gradient-to-r ${leader.gradient} p-6 text-white relative`}>
@@ -118,18 +134,18 @@ const Leadership = () => {
                   <div className="grid grid-cols-3 gap-4 mt-6">
                     <div className="text-center">
                       <FaTrophy className="text-2xl text-yellow-500 mx-auto mb-2" />
-                      <div className="text-lg font-bold text-gray-800 dark:text-white">38</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Gold Medals</div>
+                      <div className="text-lg font-bold text-gray-800 dark:text-white">30000+</div>
+                      <div className="text-xs text-gray-600 dark:text-gray-400">Students</div>
                     </div>
                     <div className="text-center">
                       <FaStar className="text-2xl text-blue-500 mx-auto mb-2" />
-                      <div className="text-lg font-bold text-gray-800 dark:text-white">Top 1000</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Schools</div>
+                      <div className="text-lg font-bold text-gray-800 dark:text-white">3000+</div>
+                      <div className="text-xs text-gray-600 dark:text-gray-400">Parents</div>
                     </div>
                     <div className="text-center">
                       <FaGraduationCap className="text-2xl text-green-500 mx-auto mb-2" />
-                      <div className="text-lg font-bold text-gray-800 dark:text-white">90%+</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Results</div>
+                      <div className="text-lg font-bold text-gray-800 dark:text-white">95%</div>
+                      <div className="text-xs text-gray-600 dark:text-gray-400">Success Rate</div>
                     </div>
                   </div>
                 </div>
@@ -141,7 +157,7 @@ const Leadership = () => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Under their guidance, Shri Krishna Public School continues to achieve new heights of excellence
+            Under their guidance, Shree Krishna Public School continues to achieve new heights of excellence
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

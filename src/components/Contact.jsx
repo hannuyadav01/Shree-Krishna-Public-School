@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp, FaSpinner } from 'react-icons/fa';
 import { sendContactMessage, sendWhatsAppNotification } from '../services/emailService';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Contact = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [infoCardsRef, infoCardsVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [formRef, formVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [mapsRef, mapsVisible] = useScrollAnimation({ threshold: 0.1 });
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,11 +48,11 @@ const Contact = () => {
     },
     {
       icon: FaMapMarkerAlt,
-      title: 'Little Krishna Campus',
-      details: ['Ganga Shergaon, Near Udairamsar', 'Bikaner, Rajasthan 334402, India'],
+      title: 'LKPS English Academy Campus',
+      details: ['C-115 Vyapaar Nagar Gangashahar', 'Bikaner, Rajasthan, India'],
       color: 'text-purple-600',
       bgColor: 'bg-purple-100',
-      link: 'https://www.google.com/maps/search/Ganga+Shergaon+Bikaner+Rajasthan',
+      link: 'https://www.google.com/maps/search/C-115+Vyapaar+Nagar+Gangashahar+Bikaner',
     },
   ];
 
@@ -100,7 +106,12 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             Get in <span className="gradient-text">Touch</span>
           </h2>
@@ -111,15 +122,22 @@ const Contact = () => {
         </div>
 
         {/* Contact Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div 
+          ref={infoCardsRef}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+        >
           {contactInfo.map((info, index) => (
             <a
               key={index}
               href={info.link}
               target={info.link.startsWith('http') ? '_blank' : undefined}
               rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="bg-white p-6 rounded-xl shadow-lg text-center card-hover animate-fade-in-up block"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`bg-white p-6 rounded-xl shadow-lg text-center card-hover block transition-all duration-700 ${
+                infoCardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+              style={{ 
+                transitionDelay: infoCardsVisible ? `${index * 150}ms` : '0ms'
+              }}
             >
               <div className={`w-16 h-16 ${info.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}>
                 <info.icon className={`text-3xl ${info.color}`} />
@@ -137,7 +155,12 @@ const Contact = () => {
         {/* Contact Form and Map */}
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <div className="animate-slide-in-left">
+          <div 
+            ref={formRef}
+            className={`transition-all duration-1000 ${
+              formVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+            }`}
+          >
             <div className="bg-white p-8 rounded-2xl shadow-xl">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h3>
               
@@ -251,17 +274,23 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className={`w-full bg-gradient-primary text-white py-4 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all ${
+                    className={`w-full ${
+                      sendMethod === 'whatsapp' 
+                        ? 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800' 
+                        : 'bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800'
+                    } text-white py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all ${
                       loading ? 'opacity-50 cursor-not-allowed' : ''
                     }`}
                   >
                     {loading ? (
                       <span className="flex items-center justify-center space-x-2">
                         <FaSpinner className="animate-spin" />
-                        <span>Sending...</span>
+                        <span className="text-white font-bold">Sending...</span>
                       </span>
                     ) : (
-                      `Send via ${sendMethod === 'email' ? 'Email' : 'WhatsApp'}`
+                      <span className="text-white font-bold">
+                        {`Send via ${sendMethod === 'email' ? 'Email' : 'WhatsApp'}`}
+                      </span>
                     )}
                   </button>
                 </form>
@@ -287,13 +316,18 @@ const Contact = () => {
           </div>
 
           {/* Map */}
-          <div className="animate-slide-in-right">
+          <div 
+            ref={mapsRef}
+            className={`transition-all duration-1000 delay-300 ${
+              mapsVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+            }`}
+          >
             <div className="bg-white p-4 rounded-2xl shadow-xl h-full">
               <h3 className="text-2xl font-bold text-gray-800 mb-6 px-4">Find Us Here</h3>
               
               {/* Main Campus Map */}
               <div className="mb-6">
-                <h4 className="font-bold text-gray-700 mb-2 px-4">Shri Krishna Public School</h4>
+                <h4 className="font-bold text-gray-700 mb-2 px-4">Shree Krishna Public School</h4>
                 <p className="text-sm text-gray-600 mb-2 px-4">Udairamsar, Bikaner, Rajasthan 334402 (W7QW+9G6)</p>
                 <div className="rounded-xl overflow-hidden shadow-lg">
                   <iframe
@@ -319,10 +353,10 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Little Krishna Campus Map */}
+              {/* LKPS English Academy Campus Map */}
               <div>
-                <h4 className="font-bold text-gray-700 mb-2 px-4">Little Krishna Public School</h4>
-                <p className="text-sm text-gray-600 mb-2 px-4">Ganga Shergaon, Near Udairamsar, Bikaner 334402</p>
+                <h4 className="font-bold text-gray-700 mb-2 px-4">LKPS English Academy</h4>
+                <p className="text-sm text-gray-600 mb-2 px-4">C-115 Vyapaar Nagar Gangashahar, Bikaner</p>
                 <div className="rounded-xl overflow-hidden shadow-lg">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.3!2d73.39!3d27.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDUzJzI0LjAiTiA3M8KwMjMnMjQuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
@@ -332,12 +366,12 @@ const Contact = () => {
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Little Krishna Public School Location"
+                    title="LKPS English Academy Location"
                   ></iframe>
                 </div>
                 <div className="mt-2 px-4">
                   <a
-                    href="https://www.google.com/maps/search/Ganga+Shergaon+Bikaner+Rajasthan"
+                    href="https://www.google.com/maps/search/C-115+Vyapaar+Nagar+Gangashahar+Bikaner"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary-600 hover:text-primary-700 font-medium text-sm"

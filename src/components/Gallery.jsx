@@ -5,9 +5,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { FaTimes } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [gridRef, gridVisible] = useScrollAnimation({ threshold: 0.1 });
   const [filter, setFilter] = useState('All');
 
   // Real school images
@@ -58,13 +61,18 @@ const Gallery = () => {
     <section id="gallery" className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-8 md:mb-16 animate-fade-in-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-8 md:mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-800 mb-4">
             Our <span className="gradient-text">Gallery</span>
           </h2>
           <div className="w-20 md:w-24 h-1 bg-gradient-accent mx-auto mb-4 md:mb-6"></div>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Glimpses of life at Shri Krishna Public School
+            Glimpses of life at Shree Krishna Public School
           </p>
         </div>
 
@@ -125,12 +133,19 @@ const Gallery = () => {
         </div>
 
         {/* Gallery Grid - Mobile Optimized */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+        <div 
+          ref={gridRef}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4"
+        >
           {filteredImages.map((image, index) => (
             <div
               key={index}
-              className="relative group cursor-pointer overflow-hidden rounded-lg md:rounded-xl shadow-lg card-hover animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.02}s` }}
+              className={`relative group cursor-pointer overflow-hidden rounded-lg md:rounded-xl shadow-lg card-hover transition-all duration-700 ${
+                gridVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+              }`}
+              style={{ 
+                transitionDelay: gridVisible ? `${index * 50}ms` : '0ms'
+              }}
               onClick={() => setSelectedImage(image)}
             >
               <div className="aspect-square">

@@ -1,7 +1,7 @@
 {
   "name": "shri-krishna-public-school",
   "version": "1.0.0",
-  "description": "Modern school website for Shri Krishna Public School",
+  "description": "Modern school website for Shree Krishna Public School",
   "type": "module",
   "scripts": {
     "dev": "vite",

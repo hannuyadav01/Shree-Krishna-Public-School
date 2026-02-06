@@ -112,7 +112,7 @@ const Header = () => {
                   />
                   <div>
                     <h1 className="text-base font-bold text-primary-800 leading-tight whitespace-nowrap">
-                      Shri Krishna Public School
+                      Shree Krishna Public School
                     </h1>
                     <p className="text-[9px] text-gray-700 font-medium">Since 2004</p>
                   </div>

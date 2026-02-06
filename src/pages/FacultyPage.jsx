@@ -1,13 +1,17 @@
 import React from 'react';
+import InfiniteSlider from '../components/InfiniteSlider';
 import { FaGraduationCap, FaFlask, FaCalculator, FaBook, FaGlobe, FaPalette, FaUsers, FaChalkboardTeacher, FaAward } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const FacultyPage = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1 });
   const facultyMembers = [
     {
       name: 'Dr. Rajesh Kumar',
       designation: 'Principal',
       qualification: 'Ph.D. in Education, M.Ed.',
-      experience: '20+ Years',
+      experience: '15+ Years',
       subject: 'Administration',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop',
       icon: FaGraduationCap,
@@ -92,8 +96,13 @@ const FacultyPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             {/* Left Content */}
-            <div className="text-center md:text-left animate-slide-in-left">
-              <div className="flex justify-center md:justify-start mb-6">
+            <div 
+              ref={headerRef}
+              className="text-center md:text-left"
+            >
+              <div className={`flex justify-center md:justify-start mb-6 transition-all duration-1000 ${
+                headerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+              }`}>
                 <img 
                   src="/logo.png" 
                   alt="SKPS Logo" 
@@ -101,7 +110,9 @@ const FacultyPage = () => {
                 />
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight transition-all duration-1000 ${
+                headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}>
                 Our <span className="text-fuchsia-400">Faculty</span><br />
                 Excellence in Teaching
               </h1>
@@ -210,6 +221,9 @@ const FacultyPage = () => {
         </div>
       </section>
 
+      {/* Infinite Slider */}
+      <InfiniteSlider />
+
       {/* Faculty Introduction */}
       <section id="faculty-list" className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -221,12 +235,19 @@ const FacultyPage = () => {
           </div>
 
           {/* Faculty Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div 
+            ref={cardsRef}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          >
             {facultyMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden card-hover animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-700 ${
+                  cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+                style={{ 
+                  transitionDelay: cardsVisible ? `${index * 100}ms` : '0ms'
+                }}
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">

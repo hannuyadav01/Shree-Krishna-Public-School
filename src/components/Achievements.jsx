@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { FaTrophy, FaMedal, FaStar, FaAward, FaGraduationCap, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Achievements = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [awardRef, awardVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [resultsRef, resultsVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [galleryRef, galleryVisible] = useScrollAnimation({ threshold: 0.1 });
 
   // Gallery images array
   const galleryImages = [
     {
       src: '/images/achievements/WhatsApp_Image_2025-12-02_at_18.32.52-e978874f-94e5-4cda-a7c9-56bd65e6cdd6.png',
       title: 'Best Principal Award Certificate',
-      description: 'Top 1000 Schools Recognition'
+      description: 'In Top 1000 Schools Recognition'
     },
     {
       src: '/images/achievements/WhatsApp_Image_2025-12-02_at_18.34.51-981c573a-a11f-49e3-ab1d-0ebd22b68ff5.png',
@@ -59,7 +65,7 @@ const Achievements = () => {
     {
       icon: FaTrophy,
       title: 'Best Principal Award',
-      description: 'Top 1000 Schools out of 15 Lakh Schools',
+      description: 'In Top 1000 Schools out of 15 Lakh Schools',
       subtitle: 'Indian Talent Olympiad Recognition',
       image: '/images/achievements/WhatsApp_Image_2025-12-02_at_18.32.52-e978874f-94e5-4cda-a7c9-56bd65e6cdd6.png',
       color: 'from-yellow-400 to-yellow-600',
@@ -119,7 +125,12 @@ const Achievements = () => {
     <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div className="inline-block mb-4">
             <FaTrophy className="text-6xl text-yellow-500 animate-bounce mx-auto" />
           </div>
@@ -133,8 +144,13 @@ const Achievements = () => {
         </div>
 
         {/* Best Principal Award Highlight */}
-        <div className="max-w-5xl mx-auto mb-16">
-          <div className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 rounded-3xl p-1 animate-fade-in shadow-2xl">
+        <div 
+          ref={awardRef}
+          className={`max-w-5xl mx-auto mb-16 transition-all duration-1000 ${
+            awardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
+          <div className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 rounded-3xl p-1 shadow-2xl">
             <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 md:p-12">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
@@ -178,7 +194,7 @@ const Achievements = () => {
                     <strong>Principal Suresh Yadav</strong> has been honored with the{' '}
                     <strong>Best Principal Award</strong>, selected from the{' '}
                     <strong className="text-primary-600 dark:text-accent-400">
-                      top 1000 schools out of 15 lakh schools
+                      In top 1000 schools out of 15 lakh schools
                     </strong>{' '}
                     across India - a lifetime achievement recognizing exceptional leadership and
                     contribution to education.
@@ -218,12 +234,19 @@ const Achievements = () => {
         </div>
 
         {/* Major Achievements Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div 
+          ref={cardsRef}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+        >
           {majorAchievements.map((achievement, index) => (
             <div
               key={index}
-              className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg card-hover animate-fade-in-up"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg card-hover transition-all duration-700 ${
+                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+              style={{ 
+                transitionDelay: cardsVisible ? `${index * 150}ms` : '0ms'
+              }}
             >
               {/* Gradient Background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${achievement.color} opacity-10 group-hover:opacity-20 transition-opacity`}></div>
@@ -263,16 +286,25 @@ const Achievements = () => {
         </div>
 
         {/* Board Results */}
-        <div className="max-w-5xl mx-auto mb-16">
-          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">
+        <div 
+          ref={resultsRef}
+          className="max-w-5xl mx-auto mb-16"
+        >
+          <h3 className={`text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 transition-all duration-700 ${
+            resultsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
             🎓 Glorious Board Results
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {boardResults.map((result, index) => (
               <div
                 key={index}
-                className={`${result.color} rounded-2xl p-8 text-white text-center shadow-xl card-hover animate-scale-in`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`${result.color} rounded-2xl p-8 text-white text-center shadow-xl card-hover transition-all duration-700 ${
+                  resultsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}
+                style={{ 
+                  transitionDelay: resultsVisible ? `${200 + index * 150}ms` : '0ms'
+                }}
               >
                 <div className="text-6xl font-bold mb-2">{result.students}</div>
                 <div className="text-2xl font-semibold mb-2">{result.title}</div>
@@ -284,15 +316,25 @@ const Achievements = () => {
         </div>
 
         {/* Achievement Gallery */}
-        <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">
+        <div 
+          ref={galleryRef}
+          className="max-w-6xl mx-auto"
+        >
+          <h3 className={`text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 transition-all duration-700 ${
+            galleryVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
             📸 Award Gallery
           </h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
               <div 
                 key={index}
-                className="relative group overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer"
+                className={`relative group overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer transition-all duration-700 ${
+                  galleryVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}
+                style={{ 
+                  transitionDelay: galleryVisible ? `${200 + index * 100}ms` : '0ms'
+                }}
                 onClick={() => openLightbox(index)}
               >
                 <img

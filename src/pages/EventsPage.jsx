@@ -1,8 +1,11 @@
 import React from 'react';
 import Events from '../components/Events';
 import { FaCalendarAlt, FaTrophy, FaMusic, FaPalette, FaTheaterMasks } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const EventsPage = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <div>
       {/* Enhanced Hero Section */}

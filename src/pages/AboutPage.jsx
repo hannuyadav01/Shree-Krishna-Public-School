@@ -1,13 +1,18 @@
 import React from 'react';
 import About from '../components/About';
 import Leadership from '../components/Leadership';
+import InfiniteSlider from '../components/InfiniteSlider';
 import { FaHistory, FaEye, FaBullseye, FaHeart, FaTrophy } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const AboutPage = () => {
+  const [storyRef, storyVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [visionRef, visionVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [timelineRef, timelineVisible] = useScrollAnimation({ threshold: 0.1 });
   const timeline = [
     { year: '2004', event: 'School Established in Udairamsar, Bikaner' },
-    { year: '2008', event: 'CBSE Affiliation Received' },
-    { year: '2012', event: 'Little Krishna Campus Opened' },
+    { year: '2008', event: 'RBSE Affiliation Received' },
+    { year: '2012', event: 'LKPS English Academy Campus Opened' },
     { year: '2016', event: 'New Science Block Inaugurated' },
     { year: '2020', event: 'Digital Classrooms Implemented' },
     { year: '2024', event: 'Best Principal Award - In Top 1000 Schools' },
@@ -50,16 +55,16 @@ const AboutPage = () => {
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-4 mb-8 max-w-md mx-auto md:mx-0">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-yellow-400">22+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-yellow-400">20+</div>
                   <div className="text-xs text-blue-200">Years</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-yellow-400">1500+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-yellow-400">30000+</div>
                   <div className="text-xs text-blue-200">Students</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-yellow-400">7000+</div>
-                  <div className="text-xs text-blue-200">Alumni</div>
+                  <div className="text-2xl md:text-3xl font-bold text-yellow-400">3000+</div>
+                  <div className="text-xs text-blue-200">Parents</div>
                 </div>
               </div>
 
@@ -130,27 +135,37 @@ const AboutPage = () => {
 
       <About />
 
+      {/* Infinite Slider */}
+      <InfiniteSlider />
+
       {/* Our Story Section */}
       <section id="story" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-              <div>
+            <div 
+              ref={storyRef}
+              className="grid md:grid-cols-2 gap-12 items-center mb-16"
+            >
+              <div className={`transition-all duration-1000 ${
+                storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+              }`}>
                 <h2 className="text-4xl font-bold text-primary-800 mb-6">
                   <FaHistory className="inline-block mr-3 text-primary-600" />
                   Our Story
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Founded in 2004 in Udairamsar, Bikaner, Shri Krishna Public School began with a vision to provide quality education to the children of Rajasthan. What started as a small institution has grown into a renowned educational center with two thriving campuses, earning recognition as one of India's Top 1000 schools.
+                  Founded in 2004 in Udairamsar, Bikaner, Shree Krishna Public School began with a vision to provide quality education to the children of Rajasthan. What started as a small institution has grown into a renowned educational center with two thriving campuses, earning recognition as one of India's In Top 1000 schools.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Our 22-year journey has been marked by continuous growth, innovation, and an unwavering commitment to academic excellence. We have evolved to meet the changing needs of education while staying true to our core values of integrity, compassion, and excellence. In 2024, our Principal Suresh Yadav was honored with the Best Principal Award by Indian Talent Olympiad.
+                  Our 20+ year journey has been marked by continuous growth, innovation, and an unwavering commitment to academic excellence. We have evolved to meet the changing needs of education while staying true to our core values of integrity, compassion, and excellence. In 2024, our Principal Suresh Yadav was honored with the Best Principal Award by Indian Talent Olympiad.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Today, we serve over 1500 students across our two campuses - Shri Krishna Public School and Little Krishna Public School - with a proud legacy of 7000+ alumni. Our dedicated team of 30+ experienced educators are passionate about nurturing young minds and achieving remarkable results that benefit countless families in our community.
+                  Today, we serve over 30000+ happy students across our two campuses - Shree Krishna Public School and LKPS English Academy - with 450+ satisfied parents trusting us. Our dedicated team of 30+ experienced educators with 20+ years of experience are passionate about nurturing young minds and achieving a 95% success rate that benefits countless families in our community.
                 </p>
               </div>
-              <div className="relative">
+              <div className={`relative transition-all duration-1000 delay-300 ${
+                storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+              }`}>
                 <div className="grid grid-cols-2 gap-4">
                   <img
                     src="/images/gallery/photo_2026-02-05 18.29.13.jpeg"
@@ -172,8 +187,13 @@ const AboutPage = () => {
             </div>
 
             {/* Mission, Vision, Values */}
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
+            <div 
+              ref={visionRef}
+              className="grid md:grid-cols-3 gap-8 mb-16"
+            >
+              <div className={`bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl transition-all duration-700 ${
+                visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}>
                 <FaBullseye className="text-4xl text-primary-600 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
                 <p className="text-gray-600">
@@ -181,7 +201,9 @@ const AboutPage = () => {
                 </p>
               </div>
               
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl">
+              <div className={`bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl transition-all duration-700 delay-150 ${
+                visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}>
                 <FaEye className="text-4xl text-purple-600 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
                 <p className="text-gray-600">
@@ -189,21 +211,36 @@ const AboutPage = () => {
                 </p>
               </div>
               
-              <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl">
+              <div className={`bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl transition-all duration-700 delay-300 ${
+                visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}>
                 <FaHeart className="text-4xl text-orange-600 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Values</h3>
                 <p className="text-gray-600">
-                  Integrity, Excellence, Compassion, Innovation, and Respect form the foundation of everything we do at Shri Krishna Public School.
+                  Integrity, Excellence, Compassion, Innovation, and Respect form the foundation of everything we do at Shree Krishna Public School.
                 </p>
               </div>
             </div>
 
             {/* Timeline */}
-            <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-center text-primary-800 mb-12">Our Journey</h2>
+            <div 
+              ref={timelineRef}
+              className="bg-gray-50 rounded-2xl p-8 md:p-12"
+            >
+              <h2 className={`text-3xl font-bold text-center text-primary-800 mb-12 transition-all duration-700 ${
+                timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}>Our Journey</h2>
               <div className="space-y-6">
                 {timeline.map((item, index) => (
-                  <div key={index} className="flex items-center space-x-4">
+                  <div 
+                    key={index} 
+                    className={`flex items-center space-x-4 transition-all duration-700 ${
+                      timelineVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                    }`}
+                    style={{ 
+                      transitionDelay: timelineVisible ? `${200 + index * 100}ms` : '0ms'
+                    }}
+                  >
                     <div className="bg-gradient-accent text-white font-bold px-4 py-2 rounded-full whitespace-nowrap">
                       {item.year}
                     </div>
@@ -256,10 +293,10 @@ const AboutPage = () => {
                 🏆 Best Principal Award Winner
               </p>
               <p className="text-gray-600 dark:text-gray-300 italic mb-2">
-                "Education is not preparation for life; education is life itself. At Shri Krishna Public School, we strive to make every moment a learning opportunity."
+                "Education is not preparation for life; education is life itself. At Shree Krishna Public School, we strive to make every moment a learning opportunity."
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Selected from Top 1000 out of 15 Lakh Schools
+                Selected In Top 1000 out of 15 Lakh Schools
               </p>
             </div>
             

@@ -1,7 +1,10 @@
 import React from 'react';
 import { FaFileDownload, FaFilePdf, FaFileWord, FaFileImage } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const DownloadCenter = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1 });
   const documents = [
     {
       name: 'Admission Form 2026-27',
@@ -81,19 +84,34 @@ const DownloadCenter = () => {
 
   return (
     <div className="bg-white rounded-2xl shadow-xl p-8">
-      <h2 className="text-3xl font-bold text-primary-800 mb-2">Download Center</h2>
-      <p className="text-gray-600 mb-8">
-        Download important documents, forms, and information
-      </p>
+      <div 
+        ref={headerRef}
+        className={`transition-all duration-1000 ${
+          headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <h2 className="text-3xl font-bold text-primary-800 mb-2">Download Center</h2>
+        <p className="text-gray-600 mb-8">
+          Download important documents, forms, and information
+        </p>
+      </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div 
+        ref={cardsRef}
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
         {documents.map((doc, index) => {
           const BgColorClass = doc.bgColor.replace('dark:bg-red-900/20', '').replace('dark:bg-blue-900/20', '').replace('dark:bg-green-900/20', '').replace('dark:bg-indigo-900/20', '').replace('dark:bg-purple-900/20', '').replace('dark:bg-orange-900/20', '').trim();
           
           return (
             <div
               key={index}
-              className="group relative bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all cursor-pointer border-2 border-transparent hover:border-primary-400"
+              className={`group relative bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all cursor-pointer border-2 border-transparent hover:border-primary-400 duration-700 ${
+                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+              style={{ 
+                transitionDelay: cardsVisible ? `${index * 100}ms` : '0ms'
+              }}
               onClick={() => handleDownload(doc)}
             >
               {/* Icon */}

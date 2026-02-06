@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { FaCheckCircle, FaFileDownload, FaUser, FaChild, FaPhone, FaEnvelope, FaWhatsapp, FaSpinner } from 'react-icons/fa';
 import { sendAdmissionEnquiry, sendWhatsAppNotification } from '../services/emailService';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Admissions = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [processRef, processVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [formRef, formVisible] = useScrollAnimation({ threshold: 0.1 });
+
   const [formData, setFormData] = useState({
     parentName: '',
     childName: '',
@@ -119,7 +124,12 @@ const Admissions = () => {
     <section id="admissions" className="py-20 bg-gradient-to-b from-primary-50 to-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             <span className="gradient-text">Admissions</span> Open 2026-27
           </h2>
@@ -130,14 +140,23 @@ const Admissions = () => {
         </div>
 
         {/* Admission Process Steps */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">Admission Process</h3>
+        <div 
+          ref={processRef}
+          className="mb-16"
+        >
+          <h3 className={`text-3xl font-bold text-center text-gray-800 mb-12 transition-all duration-700 ${
+            processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>Admission Process</h3>
           <div className="grid md:grid-cols-5 gap-6">
             {admissionSteps.map((step, index) => (
               <div
                 key={index}
-                className="relative animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`relative transition-all duration-700 ${
+                  processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+                style={{ 
+                  transitionDelay: processVisible ? `${200 + index * 150}ms` : '0ms'
+                }}
               >
                 <div className="bg-white p-6 rounded-xl shadow-lg text-center card-hover">
                   <div className="text-6xl font-bold text-primary-100 mb-2">{step.number}</div>
@@ -172,7 +191,12 @@ const Admissions = () => {
         </div>
 
         {/* Admission Enquiry Form */}
-        <div className="max-w-4xl mx-auto">
+        <div 
+          ref={formRef}
+          className={`max-w-4xl mx-auto transition-all duration-1000 ${
+            formVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             <div className="bg-gradient-primary p-8 text-white text-center">
               <h3 className="text-3xl font-bold mb-2">Admission Enquiry Form</h3>
@@ -289,8 +313,8 @@ const Admissions = () => {
                         }`}
                       >
                         <option value="">Select campus</option>
-                        <option value="skps">Shri Krishna Public School</option>
-                        <option value="lkps">Little Krishna Public School</option>
+                        <option value="skps">Shree Krishna Public School</option>
+                        <option value="lkps">LKPS English Academy</option>
                       </select>
                       {errors.campus && (
                         <p className="text-red-500 text-sm mt-1">{errors.campus}</p>
@@ -399,17 +423,23 @@ const Admissions = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className={`bg-gradient-primary text-white px-12 py-4 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all pulse-glow ${
+                      className={`${
+                        sendMethod === 'whatsapp' 
+                          ? 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800' 
+                          : 'bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800'
+                      } text-white px-12 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all ${
                         loading ? 'opacity-50 cursor-not-allowed' : ''
                       }`}
                     >
                       {loading ? (
                         <span className="flex items-center justify-center space-x-2">
                           <FaSpinner className="animate-spin" />
-                          <span>Sending...</span>
+                          <span className="text-white font-bold">Sending...</span>
                         </span>
                       ) : (
-                        `Send via ${sendMethod === 'email' ? 'Email' : 'WhatsApp'}`
+                        <span className="text-white font-bold">
+                          {`Send via ${sendMethod === 'email' ? 'Email' : 'WhatsApp'}`}
+                        </span>
                       )}
                     </button>
                     <p className="text-xs text-gray-600 mt-3">

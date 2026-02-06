@@ -5,9 +5,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import { FaGraduationCap, FaTrophy, FaStar } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [statsRef, statsVisible] = useScrollAnimation({ threshold: 0.2 });
 
   useEffect(() => {
     setIsVisible(true);
@@ -31,15 +33,15 @@ const Hero = () => {
     },
     {
       image: '/images/gallery/photo_2026-02-05 18.29.30.jpeg',
-      title: 'Little Krishna Public School',
+      title: 'LKPS English Academy',
       subtitle: 'Where Every Child Matters',
     },
   ];
 
   const stats = [
-    { icon: FaTrophy, value: 'Top 1000', label: 'School in India' },
-    { icon: FaStar, value: '38', label: 'Gold Medals' },
-    { icon: FaGraduationCap, value: '90%+', label: 'Board Results' },
+    { icon: FaTrophy, value: 'In Top 1000', label: 'Schools in India' },
+    { icon: FaStar, value: '30000+', label: 'Happy Students' },
+    { icon: FaGraduationCap, value: '95%+', label: 'Success Rate' },
   ];
 
   return (
@@ -108,9 +110,20 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-3 md:gap-4 mt-8 md:mt-12 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+          <div 
+            ref={statsRef}
+            className="grid grid-cols-3 gap-3 md:gap-4 mt-8 md:mt-12"
+          >
             {stats.map((stat, index) => (
-              <div key={index} className="text-center bg-white/10 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/20">
+              <div 
+                key={index} 
+                className={`text-center bg-white/10 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/20 transition-all duration-700 ${
+                  statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}
+                style={{ 
+                  transitionDelay: statsVisible ? `${index * 150}ms` : '0ms'
+                }}
+              >
                 <stat.icon className="text-3xl md:text-4xl text-accent-300 mx-auto mb-2" />
                 <div className="text-xl md:text-2xl lg:text-3xl font-bold">{stat.value}</div>
                 <div className="text-xs md:text-sm lg:text-base text-gray-200">{stat.label}</div>

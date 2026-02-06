@@ -4,14 +4,18 @@ import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { FaQuoteLeft, FaStar } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Testimonials = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [testimonialsRef, testimonialsVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [statsRef, statsVisible] = useScrollAnimation({ threshold: 0.2 });
   const testimonials = [
     {
       name: 'Rajesh Sharma',
       role: 'Parent of Class 8 Student',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-      text: 'Shri Krishna Public School has been instrumental in shaping my child\'s future. The teachers are dedicated, and the facilities are excellent. I highly recommend this school to all parents.',
+      text: 'Shree Krishna Public School has been instrumental in shaping my child\'s future. The teachers are dedicated, and the facilities are excellent. I highly recommend this school to all parents.',
       rating: 5,
     },
     {
@@ -23,9 +27,9 @@ const Testimonials = () => {
     },
     {
       name: 'Amit Kumar',
-      role: 'Parent - Little Krishna',
+      role: 'Parent - LKPS English Academy',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop',
-      text: 'Little Krishna Public School provides a nurturing environment for young children. The play-based learning approach has helped my son develop essential skills while having fun.',
+      text: 'LKPS English Academy provides a nurturing environment for young children. The play-based learning approach has helped my son develop essential skills while having fun.',
       rating: 5,
     },
     {
@@ -48,7 +52,12 @@ const Testimonials = () => {
     <section className="py-20 bg-gradient-to-b from-white to-primary-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             What <span className="gradient-text">Parents Say</span>
           </h2>
@@ -59,7 +68,12 @@ const Testimonials = () => {
         </div>
 
         {/* Testimonials Slider */}
-        <div className="max-w-6xl mx-auto animate-fade-in">
+        <div 
+          ref={testimonialsRef}
+          className={`max-w-6xl mx-auto transition-all duration-1000 ${
+            testimonialsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
           <Swiper
             modules={[Autoplay, Pagination]}
             spaceBetween={30}
@@ -123,20 +137,31 @@ const Testimonials = () => {
         </div>
 
         {/* Trust Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-          <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <div className="text-4xl font-bold text-primary-600 mb-2">1500+</div>
+        <div 
+          ref={statsRef}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
+        >
+          <div className={`text-center transition-all duration-700 ${
+            statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          }`} style={{ transitionDelay: statsVisible ? '100ms' : '0ms' }}>
+            <div className="text-4xl font-bold text-primary-600 mb-2">30000+</div>
             <div className="text-gray-600">Happy Students</div>
           </div>
-          <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <div className={`text-center transition-all duration-700 ${
+            statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          }`} style={{ transitionDelay: statsVisible ? '250ms' : '0ms' }}>
             <div className="text-4xl font-bold text-primary-600 mb-2">450+</div>
             <div className="text-gray-600">Satisfied Parents</div>
           </div>
-          <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+          <div className={`text-center transition-all duration-700 ${
+            statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          }`} style={{ transitionDelay: statsVisible ? '400ms' : '0ms' }}>
             <div className="text-4xl font-bold text-primary-600 mb-2">95%</div>
             <div className="text-gray-600">Success Rate</div>
           </div>
-          <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <div className={`text-center transition-all duration-700 ${
+            statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+          }`} style={{ transitionDelay: statsVisible ? '550ms' : '0ms' }}>
             <div className="text-4xl font-bold text-primary-600 mb-2">15+</div>
             <div className="text-gray-600">Years Experience</div>
           </div>

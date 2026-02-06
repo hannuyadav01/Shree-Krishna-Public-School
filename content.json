@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Shri Krishna Public School",
+    "name": "Shree Krishna Public School",
     "tagline": "Excellence in Education",
     "description": "Premier educational institution in Bikaner, Rajasthan providing quality education.",
     "email": "19shagunyadavnnl@gmail.com",
@@ -12,31 +12,31 @@
   "campuses": [
     {
       "id": "main",
-      "name": "Shri Krishna Public School",
+      "name": "Shree Krishna Public School",
       "tagline": "Main Campus",
       "address": "Udairamsar, Bikaner, Rajasthan 334402, India",
       "pincode": "334402",
       "googleId": "W7QW+9G6",
-      "classes": "Classes 1-12",
-      "curriculum": "CBSE Affiliated"
+      "classes": "Classes nursery-12",
+      "curriculum": "RBSE Affiliated"
     },
     {
       "id": "little",
-      "name": "Little Krishna Public School",
+      "name": "LKPS English Academy",
       "tagline": "Early Years Campus",
-      "address": "Ganga Shergaon, Near Udairamsar, Bikaner, Rajasthan 334402, India",
-      "pincode": "334402",
-      "googleId": "Ganga Shergaon",
+      "address": "C-115 Vyapaar Nagar Gangashahar, Bikaner, Rajasthan, India",
+      "pincode": "334003",
+      "googleId": "C-115 Vyapaar Nagar Gangashahar Bikaner",
       "classes": "Pre-Nursery to Class 5",
       "curriculum": "Play-Based Learning"
     }
   ],
   "about": {
     "mission": "Shaping Tomorrow's Leaders Today",
-    "description": "Shri Krishna Public School has been a beacon of educational excellence in Bikaner for over 15 years. We believe in holistic development, combining academic rigor with character building, sports, arts, and life skills.",
-    "yearsOfExcellence": "15+",
+    "description": "Shree Krishna Public School has been a beacon of educational excellence in Bikaner for over 20 years. We believe in holistic development, combining academic rigor with character building, sports, arts, and life skills.",
+    "yearsOfExcellence": "20+",
     "highlights": [
-      "CBSE Affiliated Institution",
+      "RBSE Affiliated Institution",
       "Experienced & Qualified Faculty",
       "Modern Infrastructure",
       "Technology-Enabled Classrooms",
@@ -45,9 +45,10 @@
     ]
   },
   "stats": {
-    "students": "1500+",
+    "students": "30000+",
+    "parents": "3000+",
     "faculty": "30+",
-    "years": "22+",
+    "years": "20+",
     "successRate": "95%"
   },
   "socialMedia": {
@@ -58,9 +59,9 @@
     "whatsapp": "#"
   },
   "seo": {
-    "title": "Shri Krishna Public School - Excellence in Education | Bikaner, Rajasthan",
-    "metaDescription": "Shri Krishna Public School - Premier educational institution in Bikaner, Rajasthan. Quality education for holistic development.",
-    "keywords": "Shri Krishna Public School, Little Krishna Public School, Bikaner, Rajasthan, School, Education, Admissions"
+    "title": "Shree Krishna Public School - Excellence in Education | Bikaner, Rajasthan",
+    "metaDescription": "Shree Krishna Public School - Premier educational institution in Bikaner, Rajasthan. Quality education for holistic development.",
+    "keywords": "Shree Krishna Public School, LKPS English Academy, Bikaner, Rajasthan, School, Education, Admissions"
   },
   "admissions": {
     "status": "Open for 2026-27",

@@ -1,8 +1,11 @@
 import React from 'react';
 import Contact from '../components/Contact';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaClock } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const ContactPage = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <div>
       {/* Enhanced Hero Section */}

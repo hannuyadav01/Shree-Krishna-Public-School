@@ -1,10 +1,13 @@
 import React from 'react';
 import { FaMapMarkerAlt, FaPhone, FaClock, FaGraduationCap } from 'react-icons/fa';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Campuses = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [campusesRef, campusesVisible] = useScrollAnimation({ threshold: 0.1 });
   const campuses = [
     {
-      name: 'Shri Krishna Public School',
+      name: 'Shree Krishna Public School',
       tagline: 'Main Campus',
       description: 'Our flagship campus offering comprehensive education from primary to senior secondary levels with state-of-the-art facilities and experienced faculty.',
       address: 'Udairamsar, Bikaner, Rajasthan 334402, India',
@@ -13,23 +16,23 @@ const Campuses = () => {
       googleId: 'W7QW+9G6',
       image: '/images/school-building.png',
       gradient: 'from-blue-600 to-blue-800',
-      features: ['Classes 1-12', 'CBSE Affiliated', 'Science & Computer Labs', 'Sports Complex'],
+      features: ['Classes 1-12', 'RBSE Affiliated', 'Science & Computer Labs', 'Sports Complex'],
       mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.3!2d73.39!3d27.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDUzJzI0LjAiTiA3M8KwMjMnMjQuMCJF!5e0!3m2!1sen!2sin!4v1234567890',
       directionsUrl: 'https://www.google.com/maps/place/W7QW%2B9G6+Udairamsar,+Rajasthan+334402',
     },
     {
-      name: 'Little Krishna Public School (LKPS)',
+      name: 'LKPS English Academy',
       tagline: 'A Branch of SKPS Udairamsar',
       description: 'Specially designed for younger children, providing a nurturing environment with play-based learning and individual attention for holistic early childhood development.',
-      address: 'Ganga Shergaon, Near Udairamsar, Bikaner, Rajasthan 334402, India',
+      address: 'C-115 Vyapaar Nagar Gangashahar, Bikaner, Rajasthan, India',
       phone: '+919896941400',
-      pincode: '334402',
-      googleId: 'Ganga Shergaon',
+      pincode: '334003',
+      googleId: 'C-115 Vyapaar Nagar Gangashahar Bikaner',
       image: '/images/gallery/photo_2026-02-05 18.30.04.jpeg',
       gradient: 'from-orange-500 to-amber-600',
       features: ['Pre-Nursery to Class 5', 'Play-Based Learning', 'Activity Rooms', 'Safe Environment'],
       mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3551.3!2d73.39!3d27.89!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDUzJzI0LjAiTiA3M8KwMjMnMjQuMCJF!5e0!3m2!1sen!2sin!4v1234567890',
-      directionsUrl: 'https://www.google.com/maps/search/Ganga+Shergaon+Bikaner+Rajasthan',
+      directionsUrl: 'https://www.google.com/maps/search/C-115+Vyapaar+Nagar+Gangashahar+Bikaner',
     },
   ];
 
@@ -37,7 +40,12 @@ const Campuses = () => {
     <section id="campuses" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             Our <span className="gradient-text">Campuses</span>
           </h2>
@@ -48,7 +56,10 @@ const Campuses = () => {
         </div>
 
         {/* Campuses */}
-        <div className="space-y-16">
+        <div 
+          ref={campusesRef}
+          className="space-y-16"
+        >
           {campuses.map((campus, index) => (
             <div
               key={index}
@@ -93,7 +104,7 @@ const Campuses = () => {
                   <div className="flex items-center space-x-4 mb-6">
                     {index === 1 && (
                       <img 
-                        src="/images/little-krishna-logo.png" 
+                        src="/images/lkps-english-academy-logo.png" 
                         alt="LKPS Logo"
                         className="w-24 h-24 object-contain"
                       />
