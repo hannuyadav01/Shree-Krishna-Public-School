@@ -23,18 +23,18 @@ const ContactPage = () => {
             {/* Left Content */}
             <div className="text-center md:text-left animate-slide-in-left">
               <div className="flex justify-center md:justify-start mb-6">
-                <img 
-                  src="/logo.png" 
-                  alt="SKPS Logo" 
+                <img
+                  src="/logo.png"
+                  alt="SKPS Logo"
                   className="w-24 h-24 md:w-32 md:h-32 object-contain animate-float"
                 />
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                 Get In <span className="text-sky-400">Touch</span><br />
                 With Us
               </h1>
-              
+
               <p className="text-lg md:text-xl text-sky-100 mb-6 leading-relaxed">
                 We'd love to hear from you. Reach out for admissions, queries, or just to say hello!
               </p>
@@ -109,26 +109,26 @@ const ContactPage = () => {
             <div className="hidden md:block animate-slide-in-right">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <img 
-                    src="/images/school-building.png" 
-                    alt="School Building" 
+                  <img
+                    src="/images/school-building.png"
+                    alt="School Building"
                     className="rounded-2xl shadow-2xl w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.29.29.jpeg" 
-                    alt="School Infrastructure" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.29.29.jpeg"
+                    alt="School Infrastructure"
                     className="rounded-2xl shadow-2xl w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="space-y-4 mt-8">
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.29.33.jpeg" 
-                    alt="Campus View" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.29.33.jpeg"
+                    alt="Campus View"
                     className="rounded-2xl shadow-2xl w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.30.31.jpeg" 
-                    alt="School Transport" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.30.31.jpeg"
+                    alt="School Transport"
                     className="rounded-2xl shadow-2xl w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -151,7 +151,7 @@ const ContactPage = () => {
         {/* Wave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white" />
           </svg>
         </div>
       </section>

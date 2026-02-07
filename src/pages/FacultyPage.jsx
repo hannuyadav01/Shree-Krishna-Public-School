@@ -96,27 +96,25 @@ const FacultyPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             {/* Left Content */}
-            <div 
+            <div
               ref={headerRef}
               className="text-center md:text-left"
             >
-              <div className={`flex justify-center md:justify-start mb-6 transition-all duration-1000 ${
-                headerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-              }`}>
-                <img 
-                  src="/logo.png" 
-                  alt="SKPS Logo" 
+              <div className={`flex justify-center md:justify-start mb-6 transition-all duration-1000 ${headerVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}>
+                <img
+                  src="/logo.png"
+                  alt="SKPS Logo"
                   className="w-24 h-24 md:w-32 md:h-32 object-contain animate-float"
                 />
               </div>
-              
-              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight transition-all duration-1000 ${
-                headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}>
+
+              <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>
                 Our <span className="text-fuchsia-400">Faculty</span><br />
                 Excellence in Teaching
               </h1>
-              
+
               <p className="text-lg md:text-xl text-violet-100 mb-6 leading-relaxed">
                 Dedicated educators committed to nurturing young minds and fostering academic excellence
               </p>
@@ -174,26 +172,26 @@ const FacultyPage = () => {
             <div className="hidden md:block animate-slide-in-right">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.29.14.jpeg" 
-                    alt="Teaching Excellence" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.29.14.jpeg"
+                    alt="Teaching Excellence"
                     className="rounded-2xl shadow-2xl w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.28.52.jpeg" 
-                    alt="Classroom" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.28.52.jpeg"
+                    alt="Classroom"
                     className="rounded-2xl shadow-2xl w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="space-y-4 mt-8">
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.17.23.jpeg" 
-                    alt="Students Learning" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.17.23.jpeg"
+                    alt="Students Learning"
                     className="rounded-2xl shadow-2xl w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.29.30.jpeg" 
-                    alt="School Staff" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.29.30.jpeg"
+                    alt="School Staff"
                     className="rounded-2xl shadow-2xl w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -216,7 +214,7 @@ const FacultyPage = () => {
         {/* Wave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white" />
           </svg>
         </div>
       </section>
@@ -235,17 +233,16 @@ const FacultyPage = () => {
           </div>
 
           {/* Faculty Grid */}
-          <div 
+          <div
             ref={cardsRef}
             className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
             {facultyMembers.map((member, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-700 ${
-                  cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-                }`}
-                style={{ 
+                className={`bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                  }`}
+                style={{
                   transitionDelay: cardsVisible ? `${index * 100}ms` : '0ms'
                 }}
               >
@@ -269,7 +266,7 @@ const FacultyPage = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-800 mb-1">{member.name}</h3>
                   <p className="text-primary-600 font-semibold mb-3">{member.designation}</p>
-                  
+
                   <div className="space-y-2 text-sm text-gray-600">
                     <p><strong>Subject:</strong> {member.subject}</p>
                     <p><strong>Qualification:</strong> {member.qualification}</p>
@@ -287,7 +284,7 @@ const FacultyPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-center text-primary-800 mb-12">Why Our Faculty is Exceptional</h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <h3 className="text-xl font-bold text-gray-800 mb-4">👨‍🎓 Highly Qualified</h3>

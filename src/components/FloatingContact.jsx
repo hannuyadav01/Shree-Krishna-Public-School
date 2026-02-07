@@ -49,9 +49,8 @@ const FloatingContact = () => {
       {/* Main Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white text-2xl transform hover:scale-110 transition-all ${
-          isOpen ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-600 hover:bg-blue-700 pulse-glow'
-        }`}
+        className={`w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white text-2xl transform hover:scale-110 transition-all ${isOpen ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-600 hover:bg-blue-700 pulse-glow'
+          }`}
         aria-label={isOpen ? 'Close contact menu' : 'Open contact menu'}
       >
         {isOpen ? <FaTimes /> : <FaCommentDots />}

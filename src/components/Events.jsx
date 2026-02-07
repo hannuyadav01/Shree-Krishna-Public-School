@@ -52,11 +52,10 @@ const Events = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             Upcoming <span className="gradient-text">Events</span>
@@ -68,17 +67,16 @@ const Events = () => {
         </div>
 
         {/* Events Grid */}
-        <div 
+        <div
           ref={cardsRef}
           className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
         >
           {events.map((event, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl overflow-hidden shadow-xl card-hover transition-all duration-700 ${
-                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}
-              style={{ 
+              className={`bg-white rounded-2xl overflow-hidden shadow-xl card-hover transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+              style={{
                 transitionDelay: cardsVisible ? `${index * 200}ms` : '0ms'
               }}
             >
@@ -91,7 +89,7 @@ const Events = () => {
                   loading="lazy"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${event.color} opacity-50`}></div>
-                
+
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4 bg-white px-4 py-1 rounded-full shadow-lg">
                   <span className="font-semibold text-gray-800 text-sm">{event.category}</span>

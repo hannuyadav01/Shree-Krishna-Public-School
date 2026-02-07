@@ -45,7 +45,7 @@ const InfiniteSlider = () => {
       </div>
 
       {/* Fun decorative elements for kids */}
-      
+
     </div>
   );
 };

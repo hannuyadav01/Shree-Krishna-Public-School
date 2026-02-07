@@ -80,9 +80,8 @@ const FAQ = () => {
         {/* Section Header */}
         <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <div className="flex items-center justify-center mb-4">
             <FaQuestionCircle className="text-5xl text-primary-600 mr-3" />
@@ -104,9 +103,8 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-700 ${
-                faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}
+              className={`bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-700 ${faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
               style={{
                 transitionDelay: faqVisible ? `${index * 100}ms` : '0ms'
               }}
@@ -140,9 +138,8 @@ const FAQ = () => {
 
         {/* CTA Section */}
         <div
-          className={`mt-16 text-center transition-all duration-1000 delay-500 ${
-            faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`mt-16 text-center transition-all duration-1000 delay-500 ${faqVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <p className="text-lg text-gray-600 mb-6">
             Still have questions? We're here to help!

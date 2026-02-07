@@ -38,6 +38,7 @@ body {
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -91,9 +92,12 @@ body {
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -138,9 +142,12 @@ body {
 
 /* Pulse animation for CTAs */
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
   }
+
   50% {
     box-shadow: 0 0 0 15px rgba(245, 158, 11, 0);
   }
@@ -155,6 +162,7 @@ body {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -170,39 +178,44 @@ body {
 
 /* Mobile-First Optimizations */
 @media (max-width: 768px) {
+
   /* Better touch targets */
-  button, a {
+  button,
+  a {
     min-height: 44px;
     min-width: 44px;
   }
-  
+
   /* Optimized font sizes for mobile */
   html {
     font-size: 16px;
   }
-  
+
   /* Prevent horizontal scroll */
   body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   /* Optimize card spacing */
   .card-hover:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
-  
+
   /* Smaller scrollbar on mobile */
   ::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   /* Reduce animations on mobile */
   @keyframes pulse-glow {
-    0%, 100% {
+
+    0%,
+    100% {
       box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
     }
+
     50% {
       box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
     }
@@ -212,8 +225,13 @@ body {
 /* Tablet optimizations */
 @media (min-width: 769px) and (max-width: 1024px) {
   .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Optimized grid spacing for iPad Portrait */
+  .grid {
+    gap: 1.5rem !important;
   }
 }
 
@@ -232,9 +250,20 @@ body {
   overflow: hidden;
 }
 
-/* Improved tap highlight */
+/* Performance and Touch Refinements */
 * {
-  -webkit-tap-highlight-color: rgba(245, 158, 11, 0.2);
+  -webkit-tap-highlight-color: rgba(30, 64, 175, 0.1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force hardware acceleration for smooth iPad animations */
+.animate-scroll,
+.animate-subtle-zoom,
+.card-hover {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 /* Infinite Scroll Animation */
@@ -242,13 +271,14 @@ body {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-33.333%);
   }
 }
 
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 35s linear infinite;
 }
 
 .animate-scroll:hover {
@@ -263,4 +293,9 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Prevent accidental horizontal bounce on iPad */
+body {
+  overscroll-behavior-x: none;
 }

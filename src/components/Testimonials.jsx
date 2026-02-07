@@ -52,11 +52,10 @@ const Testimonials = () => {
     <section className="py-20 bg-gradient-to-b from-white to-primary-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             What <span className="gradient-text">Parents Say</span>
@@ -68,11 +67,10 @@ const Testimonials = () => {
         </div>
 
         {/* Testimonials Slider */}
-        <div 
+        <div
           ref={testimonialsRef}
-          className={`max-w-6xl mx-auto transition-all duration-1000 ${
-            testimonialsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}
+          className={`max-w-6xl mx-auto transition-all duration-1000 ${testimonialsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
         >
           <Swiper
             modules={[Autoplay, Pagination]}
@@ -137,31 +135,27 @@ const Testimonials = () => {
         </div>
 
         {/* Trust Badges */}
-        <div 
+        <div
           ref={statsRef}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
         >
-          <div className={`text-center transition-all duration-700 ${
-            statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-          }`} style={{ transitionDelay: statsVisible ? '100ms' : '0ms' }}>
+          <div className={`text-center transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+            }`} style={{ transitionDelay: statsVisible ? '100ms' : '0ms' }}>
             <div className="text-4xl font-bold text-primary-600 mb-2">30000+</div>
             <div className="text-gray-600">Happy Students</div>
           </div>
-          <div className={`text-center transition-all duration-700 ${
-            statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-          }`} style={{ transitionDelay: statsVisible ? '250ms' : '0ms' }}>
+          <div className={`text-center transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+            }`} style={{ transitionDelay: statsVisible ? '250ms' : '0ms' }}>
             <div className="text-4xl font-bold text-primary-600 mb-2">3000+</div>
             <div className="text-gray-600">Satisfied Parents</div>
           </div>
-          <div className={`text-center transition-all duration-700 ${
-            statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-          }`} style={{ transitionDelay: statsVisible ? '400ms' : '0ms' }}>
+          <div className={`text-center transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+            }`} style={{ transitionDelay: statsVisible ? '400ms' : '0ms' }}>
             <div className="text-4xl font-bold text-primary-600 mb-2">95%+</div>
             <div className="text-gray-600">Success Rate</div>
           </div>
-          <div className={`text-center transition-all duration-700 ${
-            statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-          }`} style={{ transitionDelay: statsVisible ? '550ms' : '0ms' }}>
+          <div className={`text-center transition-all duration-700 ${statsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+            }`} style={{ transitionDelay: statsVisible ? '550ms' : '0ms' }}>
             <div className="text-4xl font-bold text-primary-600 mb-2">20+</div>
             <div className="text-gray-600">Years Experience</div>
           </div>

@@ -40,11 +40,10 @@ const Campuses = () => {
     <section id="campuses" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             Our <span className="gradient-text">Campuses</span>
@@ -56,22 +55,20 @@ const Campuses = () => {
         </div>
 
         {/* Campuses */}
-        <div 
+        <div
           ref={campusesRef}
           className="space-y-16"
         >
           {campuses.map((campus, index) => (
             <div
               key={index}
-              className={`grid lg:grid-cols-2 gap-8 items-center ${
-                index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-              }`}
+              className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+                }`}
             >
               {/* Image Section */}
               <div
-                className={`relative animate-slide-in-${index % 2 === 0 ? 'left' : 'right'} ${
-                  index % 2 === 1 ? 'lg:col-start-2' : ''
-                }`}
+                className={`relative animate-slide-in-${index % 2 === 0 ? 'left' : 'right'} ${index % 2 === 1 ? 'lg:col-start-2' : ''
+                  }`}
               >
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
                   <img
@@ -81,7 +78,7 @@ const Campuses = () => {
                     loading="lazy"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${campus.gradient} opacity-40 group-hover:opacity-30 transition-opacity`}></div>
-                  
+
                   {/* Floating badge */}
                   <div className="absolute top-6 right-6 bg-white px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
                     <FaGraduationCap className="text-primary-600" />
@@ -95,23 +92,22 @@ const Campuses = () => {
 
               {/* Content Section */}
               <div
-                className={`animate-slide-in-${index % 2 === 0 ? 'right' : 'left'} ${
-                  index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''
-                }`}
+                className={`animate-slide-in-${index % 2 === 0 ? 'right' : 'left'} ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''
+                  }`}
               >
                 <div className="bg-white p-8 rounded-2xl shadow-xl">
                   {/* Campus Logo & Title */}
                   <div className="flex items-center space-x-4 mb-6">
                     {index === 1 && (
-                      <img 
-                        src="/images/lkps-english-academy-logo.png" 
+                      <img
+                        src="/images/lkps-english-academy-logo.png"
                         alt="LKPS Logo"
                         className="w-24 h-24 object-contain"
                       />
                     )}
                     {index === 0 && (
-                      <img 
-                        src="/logo.png" 
+                      <img
+                        src="/logo.png"
                         alt="SKPS Logo"
                         className="w-20 h-20 object-contain"
                       />

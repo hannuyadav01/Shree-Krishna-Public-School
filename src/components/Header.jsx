@@ -65,14 +65,14 @@ const Header = () => {
       {/* Main Navigation - Improved Design */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-            ? 'bg-white shadow-xl py-3'
-            : 'bg-white/98 backdrop-blur-md py-4'
+          ? 'bg-white shadow-xl py-2'
+          : 'bg-white/95 backdrop-blur-md py-3'
           }`}
       >
-        <nav className="container mx-auto px-3 md:px-4">
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl md:rounded-3xl shadow-md px-3 md:px-6 py-2.5 md:py-3 border border-white/50">
-            {/* Desktop Layout - Grid (xl+) */}
-            <div className="hidden xl:grid grid-cols-3 items-center gap-2">
+        <nav className="container mx-auto px-4">
+          <div className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 rounded-2xl md:rounded-3xl shadow-sm px-4 md:px-6 py-2 border border-white/50">
+            {/* Desktop Layout - Grid (lg+) */}
+            <div className="hidden lg:grid grid-cols-3 items-center gap-2">
               {/* Left: Logo */}
               <div className="flex items-center">
                 <Link to="/" className="flex items-center space-x-2 group">
@@ -117,8 +117,8 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Mobile/Tablet Layout (up to xl) */}
-            <div className="flex xl:hidden items-center justify-between">
+            {/* Mobile/Tablet Layout (up to lg) */}
+            <div className="flex lg:hidden items-center justify-between">
               {/* Logo */}
               <Link to="/" className="flex items-center space-x-2 group">
                 <img
@@ -136,32 +136,29 @@ const Header = () => {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-primary-600 hover:text-primary-800 focus:outline-none bg-white rounded-xl p-2.5 shadow-sm border border-gray-100"
+                className="text-primary-600 hover:text-primary-800 focus:outline-none bg-white rounded-xl p-2 md:p-2.5 shadow-sm border border-gray-100"
                 aria-label="Toggle menu"
               >
-                {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+                {isOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
               </button>
             </div>
 
             {/* Secondary Navigation Row (Desktop Only) */}
-            <div className="hidden xl:flex items-center justify-center mt-2 pt-2 border-t border-gray-200/50">
+            <div className="hidden lg:flex items-center justify-center mt-2 pt-2 border-t border-gray-200/50">
               <div className="flex items-center space-x-1">
                 {navItems.slice(5).map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`text-xs text-gray-700 hover:text-primary-600 font-medium transition-colors px-2.5 py-1.5 rounded-lg ${location.pathname === item.href ? 'bg-white text-primary-600 shadow-sm' : 'hover:bg-white/50'
+                    className={`text-[10px] xl:text-xs text-gray-700 hover:text-primary-600 font-medium transition-colors px-2 py-1 rounded-lg ${location.pathname === item.href ? 'bg-white text-primary-600 shadow-sm' : 'hover:bg-white/50'
                       }`}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <div className="flex items-center space-x-3 text-xs ml-4 pl-4 border-l border-gray-300">
+                <div className="flex items-center space-x-3 text-[10px] xl:text-xs ml-4 pl-4 border-l border-gray-300">
                   <a href="tel:+919896941400" className="flex items-center text-gray-700 hover:text-primary-600 transition whitespace-nowrap">
                     <FaPhone className="mr-1.5" /> +919896941400
-                  </a>
-                  <a href="mailto:19shagunyadavnnl@gmail.com" className="flex items-center text-gray-700 hover:text-primary-600 transition">
-                    <FaEnvelope className="mr-1.5" /> Email
                   </a>
                 </div>
               </div>
@@ -170,22 +167,22 @@ const Header = () => {
 
           {/* Mobile Navigation Drawer - Enhanced for Tablet */}
           {isOpen && (
-            <div className="xl:hidden fixed inset-0 top-[76px] z-40 bg-black/20 backdrop-blur-sm animate-fade-in">
+            <div className="lg:hidden fixed inset-0 top-[70px] z-40 bg-black/20 backdrop-blur-sm animate-fade-in">
               <div
                 className="absolute inset-0"
                 onClick={() => setIsOpen(false)}
               ></div>
 
-              <div className="relative bg-white rounded-t-2xl shadow-2xl border-t-2 border-primary-100 mx-3 mt-3 max-h-[85vh] overflow-y-auto">
-                <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="relative bg-white rounded-t-2xl shadow-2xl border-t-2 border-primary-100 mx-3 mt-3 max-h-[85vh] overflow-y-auto transform transition-transform duration-300">
+                <div className="p-4 grid grid-cols-2 gap-2">
                   {navItems.map((item) => (
                     <Link
                       key={item.name}
                       to={item.href}
                       onClick={handleNavClick}
-                      className={`flex items-center text-gray-800 font-bold py-3 px-5 rounded-xl transition ${location.pathname === item.href
-                          ? 'bg-primary-600 text-white shadow-lg'
-                          : 'hover:bg-gray-50'
+                      className={`flex items-center text-gray-800 font-bold py-3 px-4 rounded-xl transition text-sm ${location.pathname === item.href
+                        ? 'bg-primary-600 text-white shadow-lg'
+                        : 'hover:bg-gray-50'
                         }`}
                     >
                       {item.name}

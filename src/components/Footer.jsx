@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  FaFacebook, 
-  FaInstagram, 
-  FaPhone, 
-  FaEnvelope, 
+import {
+  FaFacebook,
+  FaInstagram,
+  FaPhone,
+  FaEnvelope,
   FaMapMarkerAlt,
   FaArrowUp,
   FaHeart
@@ -48,28 +48,28 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { 
-      icon: FaInstagram, 
-      url: 'https://www.instagram.com/shree_krishna_publicudairamsar/', 
-      color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-600 hover:to-orange-500', 
+    {
+      icon: FaInstagram,
+      url: 'https://www.instagram.com/shree_krishna_publicudairamsar/',
+      color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:via-pink-600 hover:to-orange-500',
       bgColor: 'bg-gradient-to-br from-purple-500/20 via-pink-500/20 to-orange-500/20',
       label: 'Shree Krishna Public School Instagram',
       badge: 'SKPS'
     },
-    { 
-      icon: FaInstagram, 
-      url: 'https://www.instagram.com/little_krishna_public_school_/', 
-      color: 'hover:bg-gradient-to-br hover:from-yellow-500 hover:via-orange-500 hover:to-red-500', 
+    {
+      icon: FaInstagram,
+      url: 'https://www.instagram.com/little_krishna_public_school_/',
+      color: 'hover:bg-gradient-to-br hover:from-yellow-500 hover:via-orange-500 hover:to-red-500',
       bgColor: 'bg-gradient-to-br from-yellow-500/20 via-orange-500/20 to-red-500/20',
       label: 'LKPS English Academy Instagram',
       badge: 'LKPS'
     },
-    { 
-      icon: FaFacebook, 
-      url: 'https://www.facebook.com/skpsudairamsar/', 
-      color: 'hover:bg-blue-600', 
+    {
+      icon: FaFacebook,
+      url: 'https://www.facebook.com/skpsudairamsar/',
+      color: 'hover:bg-blue-600',
       bgColor: 'bg-blue-500/20',
-      label: 'Facebook' 
+      label: 'Facebook'
     },
   ];
 
@@ -81,8 +81,8 @@ const Footer = () => {
           {/* About Section */}
           <div className="animate-fade-in-up">
             <div className="flex items-center space-x-3 mb-4">
-              <img 
-                src="/logo.png" 
+              <img
+                src="/logo.png"
                 alt="Shree Krishna Public School Logo"
                 className="w-16 h-16 object-contain"
               />

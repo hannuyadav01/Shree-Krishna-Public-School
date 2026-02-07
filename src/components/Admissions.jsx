@@ -74,17 +74,17 @@ const Admissions = () => {
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
-    
+
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = validateForm();
-    
+
     if (Object.keys(newErrors).length === 0) {
       setLoading(true);
-      
+
       try {
         if (sendMethod === 'whatsapp') {
           // Send via WhatsApp
@@ -95,7 +95,7 @@ const Admissions = () => {
           await sendAdmissionEnquiry(formData);
           setSubmitted(true);
         }
-        
+
         // Reset form after 5 seconds
         setTimeout(() => {
           setSubmitted(false);
@@ -124,11 +124,10 @@ const Admissions = () => {
     <section id="admissions" className="py-20 bg-gradient-to-b from-primary-50 to-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 mb-4">
             <span className="gradient-text">Admissions</span> Open 2026-27
@@ -140,21 +139,19 @@ const Admissions = () => {
         </div>
 
         {/* Admission Process Steps */}
-        <div 
+        <div
           ref={processRef}
           className="mb-16"
         >
-          <h3 className={`text-3xl font-bold text-center text-gray-800 mb-12 transition-all duration-700 ${
-            processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>Admission Process</h3>
+          <h3 className={`text-3xl font-bold text-center text-gray-800 mb-12 transition-all duration-700 ${processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>Admission Process</h3>
           <div className="grid md:grid-cols-5 gap-6">
             {admissionSteps.map((step, index) => (
               <div
                 key={index}
-                className={`relative transition-all duration-700 ${
-                  processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-                }`}
-                style={{ 
+                className={`relative transition-all duration-700 ${processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                  }`}
+                style={{
                   transitionDelay: processVisible ? `${200 + index * 150}ms` : '0ms'
                 }}
               >
@@ -191,11 +188,10 @@ const Admissions = () => {
         </div>
 
         {/* Admission Enquiry Form */}
-        <div 
+        <div
           ref={formRef}
-          className={`max-w-4xl mx-auto transition-all duration-1000 ${
-            formVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}
+          className={`max-w-4xl mx-auto transition-all duration-1000 ${formVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
         >
           <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
             <div className="bg-gradient-primary p-8 text-white text-center">
@@ -238,9 +234,8 @@ const Admissions = () => {
                         name="parentName"
                         value={formData.parentName}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${
-                          errors.parentName ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${errors.parentName ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="Enter your name"
                       />
                       {errors.parentName && (
@@ -260,9 +255,8 @@ const Admissions = () => {
                         name="childName"
                         value={formData.childName}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${
-                          errors.childName ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${errors.childName ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="Enter child's name"
                       />
                       {errors.childName && (
@@ -280,9 +274,8 @@ const Admissions = () => {
                         name="childAge"
                         value={formData.childAge}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${
-                          errors.childAge ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${errors.childAge ? 'border-red-500' : 'border-gray-300'
+                          }`}
                       >
                         <option value="">Select age</option>
                         <option value="2-3">2-3 years</option>
@@ -308,9 +301,8 @@ const Admissions = () => {
                         name="campus"
                         value={formData.campus}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${
-                          errors.campus ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${errors.campus ? 'border-red-500' : 'border-gray-300'
+                          }`}
                       >
                         <option value="">Select campus</option>
                         <option value="skps">Shree Krishna Public School</option>
@@ -333,9 +325,8 @@ const Admissions = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${
-                          errors.phone ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="+91 98765 43210"
                       />
                       {errors.phone && (
@@ -355,9 +346,8 @@ const Admissions = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${
-                          errors.email ? 'border-red-500' : 'border-gray-300'
-                        }`}
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:border-primary-500 transition text-gray-800 bg-white ${errors.email ? 'border-red-500' : 'border-gray-300'
+                          }`}
                         placeholder="your.email@example.com"
                       />
                       {errors.email && (
@@ -389,11 +379,10 @@ const Admissions = () => {
                       <button
                         type="button"
                         onClick={() => setSendMethod('email')}
-                        className={`flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-all ${
-                          sendMethod === 'email'
+                        className={`flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-all ${sendMethod === 'email'
                             ? 'bg-primary-600 text-white shadow-lg'
                             : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-primary-400'
-                        }`}
+                          }`}
                       >
                         <FaEnvelope />
                         <span>Email</span>
@@ -401,19 +390,18 @@ const Admissions = () => {
                       <button
                         type="button"
                         onClick={() => setSendMethod('whatsapp')}
-                        className={`flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-all ${
-                          sendMethod === 'whatsapp'
+                        className={`flex-1 flex items-center justify-center space-x-2 py-3 px-4 rounded-lg font-medium transition-all ${sendMethod === 'whatsapp'
                             ? 'bg-green-600 text-white shadow-lg'
                             : 'bg-white text-gray-700 border-2 border-gray-300 hover:border-green-400'
-                        }`}
+                          }`}
                       >
                         <FaWhatsapp />
                         <span>WhatsApp</span>
                       </button>
                     </div>
                     <p className="text-xs text-gray-700 mt-2 text-center font-medium">
-                      {sendMethod === 'email' 
-                        ? '📧 We\'ll send you a confirmation email' 
+                      {sendMethod === 'email'
+                        ? '📧 We\'ll send you a confirmation email'
                         : '💬 Opens WhatsApp with your details pre-filled'}
                     </p>
                   </div>
@@ -423,13 +411,11 @@ const Admissions = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className={`${
-                        sendMethod === 'whatsapp' 
-                          ? 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800' 
+                      className={`${sendMethod === 'whatsapp'
+                          ? 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800'
                           : 'bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800'
-                      } text-white px-12 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all ${
-                        loading ? 'opacity-50 cursor-not-allowed' : ''
-                      }`}
+                        } text-white px-12 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all ${loading ? 'opacity-50 cursor-not-allowed' : ''
+                        }`}
                     >
                       {loading ? (
                         <span className="flex items-center justify-center space-x-2">
