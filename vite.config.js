@@ -6,5 +6,10 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
+    host: true, // Allow external access (helpful for testing on iPad)
   },
+  build: {
+    target: 'es2015',
+    cssTarget: 'chrome61', // Better support for older Safari
+  }
 })

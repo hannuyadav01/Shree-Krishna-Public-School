@@ -12,11 +12,10 @@ const PrincipalMessage = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div 
+          <div
             ref={headerRef}
-            className={`text-center mb-12 transition-all duration-1000 ${
-              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
+            className={`text-center mb-12 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary-800 dark:text-white mb-4">
               Principal's <span className="gradient-text">Message</span>
@@ -25,11 +24,10 @@ const PrincipalMessage = () => {
           </div>
 
           {/* Principal Card */}
-          <div 
+          <div
             ref={cardRef}
-            className={`bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden transition-all duration-1000 ${
-              cardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-            }`}
+            className={`bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden transition-all duration-1000 ${cardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
           >
             <div className="grid md:grid-cols-5 gap-0">
               {/* Left - Principal Photo */}
@@ -38,11 +36,11 @@ const PrincipalMessage = () => {
                   <FaTrophy className="text-white" />
                   <span className="text-white font-bold text-sm">Best Principal</span>
                 </div>
-                
+
                 <div className="text-center">
                   <div className="relative inline-block mb-4">
                     <div className="w-56 h-56 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
-                      <img 
+                      <img
                         src="/images/leadership/principal-suresh-yadav.png"
                         alt="Principal Suresh Yadav"
                         className="w-full h-full object-cover object-top scale-110"
@@ -59,12 +57,12 @@ const PrincipalMessage = () => {
                       </div>
                     </div>
                   </div>
-                  
-                  <h3 className="text-2xl font-bold text-white mb-1">Suresh Yadav</h3>
+
+                  <h3 className="text-2xl font-bold text-white mb-1">Mrs. Suresh Devi Yadav</h3>
                   <p className="text-white/90 font-semibold mb-2">Principal</p>
                   <div className="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full inline-block">
                     <p className="text-white text-sm font-semibold">
-                      🏆 In Top 1000/15 Lakh Schools
+                      🏆 Founder & Pillar of Excellence
                     </p>
                   </div>
                 </div>
@@ -74,42 +72,31 @@ const PrincipalMessage = () => {
               <div className="md:col-span-3 p-8 md:p-12">
                 <div className="relative">
                   <FaQuoteLeft className="text-4xl text-primary-200 dark:text-primary-700 mb-4" />
-                  
+
                   <div className="space-y-4 text-gray-700 dark:text-gray-300">
                     <p className="text-lg leading-relaxed">
-                      Dear Students, Parents, and Well-wishers,
+                      Dear Students and Parents,
                     </p>
-                    
+
                     <p className="text-lg leading-relaxed">
-                      It is with immense pride and gratitude that I welcome you to <strong className="text-primary-600 dark:text-accent-400">Shree Krishna Public School</strong>, recognized <strong className="text-yellow-600 dark:text-yellow-400">In Top 1000 Schools</strong> by the Indian Talent Olympiad.
+                      At <strong className="text-primary-600 dark:text-accent-400">Shree Krishna Public School</strong>, we believe that education is about values, discipline, and the future of every child. We focus not on profits, but on the principles that shape young lives.
                     </p>
-                    
+
                     <p className="text-lg leading-relaxed">
-                      Education is not just about academics; it's about nurturing curious minds, building strong character, and preparing our students to become compassionate global citizens. Our achievements - <strong>38 Gold Medals in Olympiads, 5 Black Belts in Karate, and outstanding Board results</strong> - are a testament to our commitment to holistic development.
+                      Our journey since 2004 has been driven by one vision: to provide quality education to every student, irrespective of background. We have created an atmosphere where <strong>learning comes before everything</strong>.
                     </p>
-                    
+
                     <p className="text-lg leading-relaxed italic font-semibold text-primary-700 dark:text-accent-400">
-                      "Education is not preparation for life; education is life itself."
-                    </p>
-                    
-                    <p className="text-lg leading-relaxed">
-                      At Shree Krishna Public School, every moment is a learning opportunity. We strive to create an environment where every child can discover their potential, pursue their passions, and achieve excellence.
-                    </p>
-                    
-                    <p className="text-lg leading-relaxed">
-                      Together, let us continue this journey of excellence, innovation, and growth.
+                      "Values and discipline are the true foundation of success."
                     </p>
                   </div>
-                  
+
                   <FaQuoteRight className="text-4xl text-primary-200 dark:text-primary-700 mt-4 ml-auto block" />
-                  
+
                   {/* Signature */}
                   <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-                    <p className="text-xl font-bold text-gray-800 dark:text-white">Suresh Yadav</p>
-                    <p className="text-gray-600 dark:text-gray-400">Principal</p>
-                    <p className="text-sm text-yellow-600 dark:text-yellow-400 font-semibold">
-                      Best Principal Award Winner - Indian Talent Olympiad
-                    </p>
+                    <p className="text-xl font-bold text-gray-800 dark:text-white">Mrs. Suresh Devi Yadav</p>
+                    <p className="text-gray-600 dark:text-gray-400">Principal & Co-Founder</p>
                   </div>
                 </div>
               </div>
@@ -117,12 +104,12 @@ const PrincipalMessage = () => {
           </div>
 
           {/* Achievement Badges */}
-          <div 
+          <div
             ref={badgesRef}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
           >
-            <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl p-4 text-center text-white shadow-lg">
-              <div className="text-3xl font-bold mb-1">In Top 1000</div>
+            <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl p-4 text-center text-white shadow-lg overflow-hidden">
+              <div className="text-2xl sm:text-3xl font-bold mb-1 break-words">In Top 1000</div>
               <div className="text-sm opacity-90">Schools in India</div>
             </div>
             <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl p-4 text-center text-white shadow-lg">

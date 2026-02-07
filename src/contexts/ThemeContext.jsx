@@ -12,13 +12,17 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Check localStorage first
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme;
+    try {
+      // Check localStorage first
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme;
+      }
+    } catch (e) {
+      console.warn('LocalStorage not accessible:', e);
     }
     // Check system preference
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       return 'dark';
     }
     return 'light';
@@ -26,14 +30,18 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    
+
     if (theme === 'dark') {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
-    
-    localStorage.setItem('theme', theme);
+
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (e) {
+      // Fallback silently if storage is full or restricted
+    }
   }, [theme]);
 
   const toggleTheme = () => {

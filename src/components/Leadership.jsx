@@ -7,26 +7,37 @@ const Leadership = () => {
   const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1 });
   const leaders = [
     {
-      name: 'Suresh Yadav',
+      name: 'Mrs. Suresh Devi Yadav',
       role: 'Principal',
       image: '/images/leadership/principal-suresh-yadav.png',
       award: 'Best Principal Award Winner',
-      organization: 'Indian Talent Olympiad',
-      achievement: 'In Top 1000 out of 15 Lakh Schools',
+      organization: 'The Education Pillar of Udairamsar',
+      achievement: 'Shaping values & discipline since 2004',
       icon: FaTrophy,
       gradient: 'from-yellow-400 via-yellow-500 to-orange-500',
-      message: '"Education is not preparation for life; education is life itself. At Shree Krishna Public School, we strive to make every moment a learning opportunity."'
+      message: '"Education is not about profits, but about values, discipline, and the future of every child. Here, learning comes before everything."'
     },
     {
-      name: 'School Director',
-      role: 'Director',
-      image: '/images/leadership/director.png',
-      award: 'Visionary Leader',
-      organization: 'Shree Krishna Public School',
-      achievement: 'Building Excellence in Education',
+      name: 'Mr. Birendra Singh Yadav',
+      role: 'Managing Director',
+      image: '/images/leadership/managing-director.png',
+      award: 'Visionary Founder',
+      organization: 'Legacy of Hope',
+      achievement: 'From Zero to a Legacy',
       icon: FaAward,
       gradient: 'from-blue-400 via-blue-500 to-indigo-500',
-      message: '"Our mission is to provide world-class education that nurtures young minds and prepares them for a bright future."'
+      message: '"Great stories do not begin with comfort. They begin with courage and an unshakeable belief in the power of education."'
+    },
+    {
+      name: 'Mr. Bhanwar Singh',
+      role: 'Director',
+      image: '/images/leadership/director.png',
+      award: 'Educational Benchmark',
+      organization: 'Innovation Leader',
+      achievement: 'Inspiring excellence in learning',
+      icon: FaStar,
+      gradient: 'from-purple-400 via-purple-500 to-rose-500',
+      message: '"His commitment to discipline, innovation, and value-based learning continues to inspire teachers and students alike."'
     }
   ];
 
@@ -34,11 +45,10 @@ const Leadership = () => {
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-800 dark:text-white mb-4">
             Our <span className="gradient-text">Leadership</span>
@@ -50,19 +60,18 @@ const Leadership = () => {
         </div>
 
         {/* Leadership Grid */}
-        <div 
+        <div
           ref={cardsRef}
-          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
           {leaders.map((leader, index) => {
             const IconComponent = leader.icon;
             return (
               <div
                 key={index}
-                className={`bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-1000 ${
-                  cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-                }`}
-                style={{ 
+                className={`bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-1000 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                  }`}
+                style={{
                   transitionDelay: cardsVisible ? `${index * 300}ms` : '0ms'
                 }}
               >
@@ -72,18 +81,18 @@ const Leadership = () => {
                     <IconComponent className="text-white" />
                     <span className="font-bold text-sm">{leader.award.split(' ')[0]}</span>
                   </div>
-                  
+
                   {/* Photo */}
                   <div className="flex justify-center mb-4">
                     <div className="relative">
                       <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
-                        <img 
+                        <img
                           src={leader.image}
                           alt={leader.name}
                           className="w-full h-full object-cover"
-                          style={{ 
-                            objectPosition: index === 0 ? 'center 20%' : 'center top',
-                            transform: index === 0 ? 'scale(1.25)' : 'scale(1.0)'
+                          style={{
+                            objectPosition: leader.role === 'Principal' || leader.role === 'Director' ? 'center 15%' : 'center top',
+                            transform: leader.role === 'Principal' ? 'scale(1.25)' : 'scale(1.1)'
                           }}
                           onError={(e) => {
                             // If image fails to load, show placeholder SVG

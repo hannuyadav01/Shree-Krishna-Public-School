@@ -15,6 +15,10 @@ const Gallery = () => {
 
   // Real school images
   const galleryImages = [
+    { url: '/images/gallery/newsletter-1.png', title: 'The Education Times Page 1', category: 'Newsletter' },
+    { url: '/images/gallery/newsletter-2.png', title: 'The Education Times Page 2', category: 'Newsletter' },
+    { url: '/images/gallery/newsletter-3.png', title: 'The Education Times Page 3', category: 'Newsletter' },
+    { url: '/images/gallery/newsletter-4.png', title: 'The Education Times Page 4', category: 'Newsletter' },
     { url: '/images/gallery/photo_2026-02-05 18.15.56.jpeg', title: 'School Campus', category: 'Campus' },
     { url: '/images/gallery/photo_2026-02-05 18.17.23.jpeg', title: 'Students Learning', category: 'Academics' },
     { url: '/images/gallery/photo_2026-02-05 18.28.27.jpeg', title: 'School Activities', category: 'Activities' },
@@ -49,23 +53,21 @@ const Gallery = () => {
     { url: '/images/gallery/photo_2026-02-05 18.29.57.jpeg', title: 'Campus Area', category: 'Campus' },
     { url: '/images/gallery/photo_2026-02-05 18.30.02.jpeg', title: 'Educational Event', category: 'Academics' },
     { url: '/images/gallery/photo_2026-02-05 18.30.06.jpeg', title: 'School Activity', category: 'Activities' },
- 
   ];
 
-  const categories = ['All', 'Campus', 'Academics', 'Sports', 'Events', 'Activities', 'Facilities'];
-  const filteredImages = filter === 'All' 
-    ? galleryImages 
+  const categories = ['All', 'Newsletter', 'Campus', 'Academics', 'Sports', 'Events', 'Activities', 'Facilities'];
+  const filteredImages = filter === 'All'
+    ? galleryImages
     : galleryImages.filter(img => img.category === filter);
 
   return (
     <section id="gallery" className="py-12 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef}
-          className={`text-center mb-8 md:mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-8 md:mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-800 mb-4">
             Our <span className="gradient-text">Gallery</span>
@@ -82,11 +84,10 @@ const Gallery = () => {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-4 md:px-6 py-2 rounded-full text-sm md:text-base font-semibold transition-all ${
-                filter === cat
-                  ? 'bg-gradient-primary text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
-              }`}
+              className={`px-4 md:px-6 py-2 rounded-full text-sm md:text-base font-semibold transition-all ${filter === cat
+                ? 'bg-gradient-primary text-white shadow-lg scale-105'
+                : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
+                }`}
             >
               {cat}
             </button>
@@ -133,17 +134,16 @@ const Gallery = () => {
         </div>
 
         {/* Gallery Grid - Mobile Optimized */}
-        <div 
+        <div
           ref={gridRef}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4"
         >
           {filteredImages.map((image, index) => (
             <div
               key={index}
-              className={`relative group cursor-pointer overflow-hidden rounded-lg md:rounded-xl shadow-lg card-hover transition-all duration-700 ${
-                gridVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-              }`}
-              style={{ 
+              className={`relative group cursor-pointer overflow-hidden rounded-lg md:rounded-xl shadow-lg card-hover transition-all duration-700 ${gridVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}
+              style={{
                 transitionDelay: gridVisible ? `${index * 50}ms` : '0ms'
               }}
               onClick={() => setSelectedImage(image)}

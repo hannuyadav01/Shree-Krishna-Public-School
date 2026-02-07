@@ -49,14 +49,14 @@ const Home = () => {
   return (
     <div>
       <Hero />
-      
+
       {/* Infinite Slider */}
       <InfiniteSlider />
-      
+
       {/* Quick Links Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div 
+          <div
             ref={quickLinksRef}
             className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
           >
@@ -64,12 +64,11 @@ const Home = () => {
               <Link
                 key={index}
                 to={item.link}
-                className={`group relative bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-700 ${
-                  quickLinksVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-10'
-                }`}
-                style={{ 
+                className={`group relative bg-white rounded-2xl shadow-lg overflow-hidden card-hover transition-all duration-700 ${quickLinksVisible
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-10'
+                  }`}
+                style={{
                   transitionDelay: quickLinksVisible ? `${index * 100}ms` : '0ms'
                 }}
               >
@@ -96,68 +95,9 @@ const Home = () => {
       <PrincipalMessage />
       <Achievements />
       <Campuses />
-      
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 via-primary-800 to-indigo-900 text-white">
-        <div 
-          ref={whyChooseRef}
-          className="container mx-auto px-4"
-        >
-          <div className={`text-center mb-12 transition-all duration-1000 ${
-            whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Why Choose Us?</h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
-              We provide a nurturing environment where every child can excel
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className={`text-center transition-all duration-700 ${
-              whyChooseVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-            }`} style={{ transitionDelay: whyChooseVisible ? '200ms' : '0ms' }}>
-              <div className="text-5xl font-bold mb-2 text-yellow-400">In Top 1000</div>
-              <div className="text-lg font-semibold text-white">Schools in India</div>
-              <div className="text-sm text-gray-200 mt-1">out of 15 Lakh</div>
-            </div>
-            <div className={`text-center transition-all duration-700 ${
-              whyChooseVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-            }`} style={{ transitionDelay: whyChooseVisible ? '350ms' : '0ms' }}>
-              <div className="text-5xl font-bold mb-2 text-yellow-400">30000+</div>
-              <div className="text-lg font-semibold text-white">Happy Students</div>
-              <div className="text-sm text-gray-200 mt-1">Across Campuses</div>
-            </div>
-            <div className={`text-center transition-all duration-700 ${
-              whyChooseVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-            }`} style={{ transitionDelay: whyChooseVisible ? '500ms' : '0ms' }}>
-              <div className="text-5xl font-bold mb-2 text-yellow-400">3000+</div>
-              <div className="text-lg font-semibold text-white">Satisfied Parents</div>
-              <div className="text-sm text-gray-200 mt-1">Trusting Us</div>
-            </div>
-            <div className={`text-center transition-all duration-700 ${
-              whyChooseVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-            }`} style={{ transitionDelay: whyChooseVisible ? '650ms' : '0ms' }}>
-              <div className="text-5xl font-bold mb-2 text-yellow-400">95%</div>
-              <div className="text-lg font-semibold text-white">Success Rate</div>
-              <div className="text-sm text-gray-200 mt-1">20+ Years Experience</div>
-            </div>
-          </div>
-
-          <div className={`text-center mt-12 transition-all duration-1000 ${
-            whyChooseVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`} style={{ transitionDelay: whyChooseVisible ? '800ms' : '0ms' }}>
-            <Link
-              to="/about"
-              className="inline-block bg-white text-primary-800 px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transform hover:scale-105 transition-all"
-            >
-              Learn More About Us
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <Testimonials />
-      
+
       {/* FAQ Section */}
       <FAQ />
     </div>

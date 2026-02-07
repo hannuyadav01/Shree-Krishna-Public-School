@@ -36,18 +36,18 @@ const AboutPage = () => {
             <div className="text-center md:text-left animate-slide-in-left">
               {/* School Logo */}
               <div className="flex justify-center md:justify-start mb-6">
-                <img 
-                  src="/logo.png" 
-                  alt="SKPS Logo" 
+                <img
+                  src="/logo.png"
+                  alt="SKPS Logo"
                   className="w-24 h-24 md:w-32 md:h-32 object-contain animate-float"
                 />
               </div>
-              
+
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                 About <span className="text-yellow-400">Shri Krishna</span><br />
                 Public School
               </h1>
-              
+
               <p className="text-lg md:text-xl text-blue-100 mb-6 leading-relaxed">
                 A premier educational institution committed to providing quality education and nurturing future leaders since 2004
               </p>
@@ -89,26 +89,26 @@ const AboutPage = () => {
             <div className="hidden md:block animate-slide-in-right">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <img 
-                    src="/images/school-building.png" 
-                    alt="School Building" 
+                  <img
+                    src="/images/school-building.png"
+                    alt="School Building"
                     className="rounded-2xl shadow-2xl w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.29.26.jpeg" 
-                    alt="Students" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.29.26.jpeg"
+                    alt="Students"
                     className="rounded-2xl shadow-2xl w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="space-y-4 mt-8">
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.29.05.jpeg" 
-                    alt="School Event" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.29.05.jpeg"
+                    alt="School Event"
                     className="rounded-2xl shadow-2xl w-full h-32 object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <img 
-                    src="/images/gallery/photo_2026-02-05 18.29.30.jpeg" 
-                    alt="Campus" 
+                  <img
+                    src="/images/gallery/photo_2026-02-05 18.29.30.jpeg"
+                    alt="Campus"
                     className="rounded-2xl shadow-2xl w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -128,9 +128,9 @@ const AboutPage = () => {
         {/* Wave Divider */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+            <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white" />
           </svg>
-        </div> 
+        </div>
       </section>
 
       <About />
@@ -142,30 +142,28 @@ const AboutPage = () => {
       <section id="story" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div 
+            <div
               ref={storyRef}
               className="grid md:grid-cols-2 gap-12 items-center mb-16"
             >
-              <div className={`transition-all duration-1000 ${
-                storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
-              }`}>
+              <div className={`transition-all duration-1000 ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                }`}>
                 <h2 className="text-4xl font-bold text-primary-800 mb-6">
                   <FaHistory className="inline-block mr-3 text-primary-600" />
                   Our Story
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Founded in 2004 in Udairamsar, Bikaner, Shree Krishna Public School began with a vision to provide quality education to the children of Rajasthan. What started as a small institution has grown into a renowned educational center with two thriving campuses, earning recognition as one of India's In Top 1000 schools.
+                  Founded in 2004 in Udairamsar, Bikaner, the story of Shree Krishna Public School is one of extraordinary courage. It began with <strong>Mr. Birendra Singh Yadav</strong>, a man who started his journey sitting under a tree with barely any resources but an unshakeable belief in education.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Our 20+ year journey has been marked by continuous growth, innovation, and an unwavering commitment to academic excellence. We have evolved to meet the changing needs of education while staying true to our core values of integrity, compassion, and excellence. In 2024, our Principal Suresh Yadav was honored with the Best Principal Award by Indian Talent Olympiad.
+                  In those early days, he played every role a school needed—bus driver at 4 AM, caretaker at dawn, manager through the morning, government school teacher by noon, and free tutor for students in the evening—a tireless routine he followed to build this legacy.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
-                  Today, we serve over 30000+ happy students across our two campuses - Shree Krishna Public School and LKPS English Academy - with 3000+ satisfied parents trusting us. Our dedicated team of 30+ experienced educators with 20+ years of experience are passionate about nurturing young minds and achieving a 95% success rate that benefits countless families in our community.
+                  Alongside him, <strong>Mrs. Suresh Devi Yadav</strong> shaped the school's identity with discipline and values. Today, we serve over 30,000 students across two campuses, producing 7-8 doctors and 3-5 engineers every year. Our mission remains the same: quality education for every student, where learning always comes before everything else.
                 </p>
               </div>
-              <div className={`relative transition-all duration-1000 delay-300 ${
-                storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
-              }`}>
+              <div className={`relative transition-all duration-1000 delay-300 ${storyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
+                }`}>
                 <div className="grid grid-cols-2 gap-4">
                   <img
                     src="/images/gallery/photo_2026-02-05 18.29.13.jpeg"
@@ -187,33 +185,30 @@ const AboutPage = () => {
             </div>
 
             {/* Mission, Vision, Values */}
-            <div 
+            <div
               ref={visionRef}
               className="grid md:grid-cols-3 gap-8 mb-16"
             >
-              <div className={`bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl transition-all duration-700 ${
-                visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}>
+              <div className={`bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl transition-all duration-700 ${visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}>
                 <FaBullseye className="text-4xl text-primary-600 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
                 <p className="text-gray-600">
                   To provide quality education that empowers students to become responsible global citizens with strong moral values and academic excellence.
                 </p>
               </div>
-              
-              <div className={`bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl transition-all duration-700 delay-150 ${
-                visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}>
+
+              <div className={`bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl transition-all duration-700 delay-150 ${visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}>
                 <FaEye className="text-4xl text-purple-600 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
                 <p className="text-gray-600">
                   To be a leading educational institution recognized for academic excellence, innovation, and holistic development of students.
                 </p>
               </div>
-              
-              <div className={`bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl transition-all duration-700 delay-300 ${
-                visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}>
+
+              <div className={`bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl transition-all duration-700 delay-300 ${visionVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}>
                 <FaHeart className="text-4xl text-orange-600 mb-4" />
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Values</h3>
                 <p className="text-gray-600">
@@ -223,21 +218,19 @@ const AboutPage = () => {
             </div>
 
             {/* Timeline */}
-            <div 
+            <div
               ref={timelineRef}
               className="bg-gray-50 rounded-2xl p-8 md:p-12"
             >
-              <h2 className={`text-3xl font-bold text-center text-primary-800 mb-12 transition-all duration-700 ${
-                timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}>Our Journey</h2>
+              <h2 className={`text-3xl font-bold text-center text-primary-800 mb-12 transition-all duration-700 ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}>Our Journey</h2>
               <div className="space-y-6">
                 {timeline.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className={`flex items-center space-x-4 transition-all duration-700 ${
-                      timelineVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
-                    }`}
-                    style={{ 
+                  <div
+                    key={index}
+                    className={`flex items-center space-x-4 transition-all duration-700 ${timelineVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'
+                      }`}
+                    style={{
                       transitionDelay: timelineVisible ? `${200 + index * 100}ms` : '0ms'
                     }}
                   >
@@ -259,7 +252,7 @@ const AboutPage = () => {
       <Leadership />
 
       {/* Old Leadership Section (hidden) */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50" style={{display: 'none'}}>
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50" style={{ display: 'none' }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary-800 mb-4">Leadership</h2>
@@ -267,7 +260,7 @@ const AboutPage = () => {
               Guided by visionary leaders committed to educational excellence
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl text-center relative overflow-hidden">
               {/* Award Badge */}
@@ -275,10 +268,10 @@ const AboutPage = () => {
                 <FaTrophy />
                 <span>Best Principal</span>
               </div>
-              
+
               {/* Principal Photo */}
               <div className="w-48 h-48 mx-auto mb-4 relative">
-                <img 
+                <img
                   src="/images/leadership/principal-suresh-yadav.png"
                   alt="Principal Suresh Yadav"
                   className="w-full h-full object-cover object-top rounded-full border-4 border-yellow-400 shadow-lg scale-110"
@@ -299,7 +292,7 @@ const AboutPage = () => {
                 Selected In Top 1000 out of 15 Lakh Schools
               </p>
             </div>
-            
+
             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl text-center">
               <div className="w-32 h-32 bg-gradient-accent rounded-full mx-auto mb-4 flex items-center justify-center">
                 <FaHeart className="text-5xl text-white" />
@@ -310,7 +303,7 @@ const AboutPage = () => {
               </p>
             </div>
           </div>
-          
+
           {/* Achievement Highlights */}
           <div className="mt-12 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">

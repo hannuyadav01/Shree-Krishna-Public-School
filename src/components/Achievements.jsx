@@ -69,55 +69,55 @@ const Achievements = () => {
       subtitle: 'Indian Talent Olympiad Recognition',
       image: '/images/achievements/WhatsApp_Image_2025-12-02_at_18.32.52-e978874f-94e5-4cda-a7c9-56bd65e6cdd6.png',
       color: 'from-yellow-400 to-yellow-600',
-      stats: 'Principal: Suresh Yadav',
+      stats: 'Principal: Suresh Devi Yadav',
     },
     {
       icon: FaMedal,
-      title: 'SOF International Olympiad',
-      description: 'Gold Medal Champions',
-      subtitle: '38 Gold Medals Won',
+      title: '🥇 38 Gold Medals',
+      description: 'Won in a Single Year',
+      subtitle: 'SOF International Olympiad',
       color: 'from-blue-400 to-blue-600',
       stats: 'English: 12 | Science: 09 | Math: 17',
     },
     {
       icon: FaStar,
-      title: 'Martial Arts Excellence',
-      description: '5 Black Belts Achieved',
+      title: '🥋 5 Black Belts',
+      description: 'Achieved in a Single Year',
       subtitle: 'Okinawa Shorin-Ryu Karate',
       color: 'from-red-400 to-red-600',
       stats: 'Exceptional Discipline & Skill',
     },
     {
       icon: FaAward,
-      title: 'District Sports Champion',
-      description: '25 Medals Won',
-      subtitle: '68th District Level Games',
+      title: '🎖️ 25 Sports Medals',
+      description: 'Won in a Single Year',
+      subtitle: 'District & State Level Games',
       color: 'from-green-400 to-green-600',
-      stats: '3 Consecutive Years Karate Champion',
+      stats: '68th District Level Champion',
     },
   ];
 
   const boardResults = [
     {
       title: 'Class 10 Results',
-      percentage: '90%+',
-      students: 29,
-      description: 'Above 90% marks',
+      percentage: 'Passed 100%',
+      students: 'Elite',
+      description: 'Exceptional board performance',
       color: 'bg-gradient-to-br from-purple-500 to-purple-700',
     },
     {
-      title: 'Class 12 Results',
-      percentage: '80%+',
-      students: 23,
-      description: 'Above 80% marks',
-      color: 'bg-gradient-to-br from-indigo-500 to-indigo-700',
+      title: 'Doctors (MBBS)',
+      percentage: 'Every Year',
+      students: '7-8',
+      description: 'Students entering medical fields',
+      color: 'bg-gradient-to-br from-red-500 to-red-700',
     },
     {
-      title: 'NEET UG',
-      percentage: 'Qualified',
-      students: 13,
-      description: 'Students cleared NEET',
-      color: 'bg-gradient-to-br from-green-500 to-green-700',
+      title: 'Engineers (IIT/NIT)',
+      percentage: 'Annually',
+      students: '3-5',
+      description: 'Students entering engineering',
+      color: 'bg-gradient-to-br from-blue-500 to-blue-700',
     },
   ];
 
@@ -125,11 +125,10 @@ const Achievements = () => {
     <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef}
-          className={`text-center mb-16 transition-all duration-1000 ${
-            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
         >
           <div className="inline-block mb-4">
             <FaTrophy className="text-6xl text-yellow-500 animate-bounce mx-auto" />
@@ -144,11 +143,10 @@ const Achievements = () => {
         </div>
 
         {/* Best Principal Award Highlight */}
-        <div 
+        <div
           ref={awardRef}
-          className={`max-w-5xl mx-auto mb-16 transition-all duration-1000 ${
-            awardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}
+          className={`max-w-5xl mx-auto mb-16 transition-all duration-1000 ${awardVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
         >
           <div className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-orange-500 rounded-3xl p-1 shadow-2xl">
             <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 md:p-12">
@@ -158,7 +156,7 @@ const Achievements = () => {
                   <div className="flex flex-col items-center md:items-start mb-6">
                     <div className="relative mb-4">
                       <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-8 border-yellow-400 shadow-2xl bg-white p-1">
-                        <img 
+                        <img
                           src="/images/leadership/principal-suresh-yadav.png"
                           alt="Principal Suresh Yadav"
                           className="w-full h-full object-cover object-top rounded-full scale-110"
@@ -178,7 +176,7 @@ const Achievements = () => {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center space-x-3 mb-4">
                     <FaTrophy className="text-4xl text-yellow-500" />
                     <div>
@@ -233,18 +231,44 @@ const Achievements = () => {
           </div>
         </div>
 
-        {/* Major Achievements Grid */}
-        <div 
+        {/* Single Year Achievement Highlights - High Impact Row */}
+        <div className="mb-16">
+          <h3 className={`text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            🏆 Major Milestones (In a Single Year)
+          </h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className={`bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-8 text-white text-center shadow-xl card-hover transition-all duration-700 ${cardsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
+              <div className="text-6xl font-bold mb-2">38</div>
+              <div className="text-2xl font-semibold mb-2">Gold Medals</div>
+              <div className="text-lg opacity-90 mb-2">In a Single Year</div>
+              <div className="text-sm opacity-80">SOF International Olympiad</div>
+            </div>
+            <div className={`bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-8 text-white text-center shadow-xl card-hover transition-all duration-700 ${cardsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`} style={{ transitionDelay: '200ms' }}>
+              <div className="text-6xl font-bold mb-2">5</div>
+              <div className="text-2xl font-semibold mb-2">Black Belts</div>
+              <div className="text-lg opacity-90 mb-2">In a Single Year</div>
+              <div className="text-sm opacity-80">Okinawa Shorin-Ryu Karate</div>
+            </div>
+            <div className={`bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-8 text-white text-center shadow-xl card-hover transition-all duration-700 ${cardsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`} style={{ transitionDelay: '400ms' }}>
+              <div className="text-6xl font-bold mb-2">25</div>
+              <div className="text-2xl font-semibold mb-2">Sports Medals</div>
+              <div className="text-lg opacity-90 mb-2">In a Single Year</div>
+              <div className="text-sm opacity-80">District Level Excellence</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Major Achievements Grid (Existing) */}
+        <div
           ref={cardsRef}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
           {majorAchievements.map((achievement, index) => (
             <div
               key={index}
-              className={`group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg card-hover transition-all duration-700 ${
-                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-              }`}
-              style={{ 
+              className={`group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg card-hover transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+                }`}
+              style={{
                 transitionDelay: cardsVisible ? `${index * 150}ms` : '0ms'
               }}
             >
@@ -286,27 +310,27 @@ const Achievements = () => {
         </div>
 
         {/* Board Results */}
-        <div 
+        <div
           ref={resultsRef}
           className="max-w-5xl mx-auto mb-16"
         >
-          <h3 className={`text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 transition-all duration-700 ${
-            resultsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+          <h3 className={`text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 transition-all duration-700 ${resultsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
             🎓 Glorious Board Results
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
             {boardResults.map((result, index) => (
               <div
                 key={index}
-                className={`${result.color} rounded-2xl p-8 text-white text-center shadow-xl card-hover transition-all duration-700 ${
-                  resultsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-                }`}
-                style={{ 
+                className={`${result.color} rounded-2xl p-8 text-white text-center shadow-xl card-hover transition-all duration-700 ${resultsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                  }`}
+                style={{
                   transitionDelay: resultsVisible ? `${200 + index * 150}ms` : '0ms'
                 }}
               >
-                <div className="text-6xl font-bold mb-2">{result.students}</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 break-words px-1 leading-tight tracking-tight">
+                  {result.students}
+                </div>
                 <div className="text-2xl font-semibold mb-2">{result.title}</div>
                 <div className="text-lg opacity-90 mb-2">{result.percentage}</div>
                 <div className="text-sm opacity-80">{result.description}</div>
@@ -316,23 +340,21 @@ const Achievements = () => {
         </div>
 
         {/* Achievement Gallery */}
-        <div 
+        <div
           ref={galleryRef}
           className="max-w-6xl mx-auto"
         >
-          <h3 className={`text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 transition-all duration-700 ${
-            galleryVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}>
+          <h3 className={`text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 transition-all duration-700 ${galleryVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
             📸 Award Gallery
           </h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
-              <div 
+              <div
                 key={index}
-                className={`relative group overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer transition-all duration-700 ${
-                  galleryVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-                }`}
-                style={{ 
+                className={`relative group overflow-hidden rounded-xl shadow-lg card-hover cursor-pointer transition-all duration-700 ${galleryVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                  }`}
+                style={{
                   transitionDelay: galleryVisible ? `${200 + index * 100}ms` : '0ms'
                 }}
                 onClick={() => openLightbox(index)}
@@ -364,7 +386,7 @@ const Achievements = () => {
 
         {/* Lightbox Modal */}
         {selectedImage && (
-          <div 
+          <div
             className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in"
             onClick={closeLightbox}
           >
@@ -402,7 +424,7 @@ const Achievements = () => {
             </button>
 
             {/* Image Container */}
-            <div 
+            <div
               className="max-w-6xl w-full"
               onClick={(e) => e.stopPropagation()}
             >

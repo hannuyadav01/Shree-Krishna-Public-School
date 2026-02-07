@@ -42,6 +42,7 @@ export default {
         'scale-in': 'scaleIn 0.5s ease-out',
         'bounce-slow': 'bounce 2s infinite',
         'float': 'float 3s ease-in-out infinite',
+        'subtle-zoom': 'subtleZoom 20s infinite alternate linear',
       },
       keyframes: {
         fadeIn: {
@@ -71,6 +72,10 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
+        },
+        subtleZoom: {
+          '0%': { transform: 'scale(1)' },
+          '100%': { transform: 'scale(1.1)' },
         },
       },
     },

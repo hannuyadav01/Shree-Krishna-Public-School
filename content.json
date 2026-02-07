@@ -33,15 +33,15 @@
   ],
   "about": {
     "mission": "Shaping Tomorrow's Leaders Today",
-    "description": "Shree Krishna Public School has been a beacon of educational excellence in Bikaner for over 20 years. We believe in holistic development, combining academic rigor with character building, sports, arts, and life skills.",
+    "description": "Founded in 2004 by Mr. Birendra Singh Yadav and Mrs. Suresh Devi Yadav, Shree Krishna Public School began with a vision to provide quality education where values come before money. Over 20 years, it has transformed into a legacy of excellence, nurturing students who excel in both academics and life.",
     "yearsOfExcellence": "20+",
     "highlights": [
+      "7-8 Doctors produced every year",
+      "3-5 Engineers produced annually",
+      "Gold in Games for 4 consecutive years",
       "RBSE Affiliated Institution",
-      "Experienced & Qualified Faculty",
-      "Modern Infrastructure",
-      "Technology-Enabled Classrooms",
-      "Safe & Secure Environment",
-      "Co-curricular Activities"
+      "Disciplined & Value-Based Learning",
+      "Outstanding Board Results (Class 5, 8, 10, 12)"
     ]
   },
   "stats": {
@@ -49,7 +49,15 @@
     "parents": "3000+",
     "faculty": "30+",
     "years": "20+",
-    "successRate": "95%"
+    "successRate": "95%",
+    "doctors": "7-8/yr",
+    "engineers": "3-5/yr",
+    "medals": {
+      "gold": "38",
+      "blackBelts": "5",
+      "sports": "25",
+      "period": "In a Single Year"
+    }
   },
   "socialMedia": {
     "facebook": "#",
